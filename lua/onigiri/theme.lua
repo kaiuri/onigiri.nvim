@@ -390,6 +390,8 @@ local function Theme(v)
     hl.FzfLuaTitle = { fg = v.Foreground.default, bold = true }
     hl.FzfLuaCursorLine = { link = 'CursorLine' }
     hl.FzfLuaCursorLineNr = { link = 'CursorLineNr' }
+    hl.editorconfigProperty = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.dosiniHeader = { fg = v.Colors.Error, bg = v.Shade.default }
     --- TSExtended
     hl.TSExtStringDelimiter = { fg = v.Colors.Note, bg = v.Shade.default }
     -- hl.TSExtYamlField = { fg = v.Colors.Hint, bg = v.Shade.default }
