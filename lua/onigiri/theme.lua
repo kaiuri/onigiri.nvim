@@ -155,7 +155,7 @@ local function Theme(v)
     hl['@property'] = { fg = v.Colors.Accent, bg = v.Shade.default }
     hl['@property.toml'] = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl['@punctuation.bracket'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
-    hl['@punctuation.bracket.toml'] = { fg = v.Colors.Error, bg = v.Shade.default }
+    -- hl['@punctuation.bracket.toml'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@punctuation.delimiter'] = { link = 'Delimiter', bg = v.Shade.emphasis }
     hl['@punctuation.delimiter.yaml'] = { fg = v.Colors.Note, bg = v.Shade.emphasis }
     -- hl['@punctuation.delimiter.lua'] = { fg = v.Colors.Hint, bg = v.Shade.emphasis }
@@ -186,6 +186,7 @@ local function Theme(v)
     hl['@type.qualifier'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@variable'] = { fg = v.Foreground.default, bg = v.Shade.default }
     hl['@variable.builtin'] = { fg = v.Colors.Error, italic = true }
+    hl['@variable.builtin.javascript'] = { fg = v.Colors.Warn, italic = true }
     hl['@variable.builtin.clojure'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
 
     hl.htmlTagName = { link = 'Tag' }
