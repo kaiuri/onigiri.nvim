@@ -358,7 +358,7 @@ local function Theme(v)
     hl.LspStruct = { link = '@type' }
     hl.LspTypeParameter = { link = '@type' }
     hl.LspParameter = { link = '@parameter' }
-    hl.LspVariable = { link = '@variable' }
+    -- hl.LspVariable = { link = '@variable' }
     hl.LspProperty = { link = '@property' }
     hl.LspEnumMember = { link = '@field' }
     -- hl.LspEvent   = {}
