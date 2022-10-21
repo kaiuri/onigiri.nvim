@@ -186,8 +186,12 @@ local function Theme(v)
     hl['@type.qualifier'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@variable'] = { fg = v.Foreground.default, bg = v.Shade.default }
     hl['@variable.builtin'] = { fg = v.Colors.Error, italic = true }
-    hl['@variable.builtin.javascript'] = { fg = v.Colors.Warn, italic = true }
-    hl['@variable.builtin.clojure'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
+    hl['@variable.builtin.javascript'] = {
+        fg = v.Colors.Warn, bg = v.Shade.default, italic = true
+    }
+    hl['@variable.builtin.clojure'] = {
+        fg = v.Foreground.emphasis, bg = v.Shade.default
+    }
 
     hl.htmlTagName = { link = 'Tag' }
     hl.gitCommitSelectedFile = { italic = true }
@@ -215,8 +219,6 @@ local function Theme(v)
     hl.tmuxFlags = { fg = v.Colors.Caution }
     hl.tmuxFormatString = { fg = v.Colors.Hint }
     hl.javaScriptReserved = { fg = v.Colors.Error }
-    hl.fennelTSFuncMacro = { link = 'TSKeywordFunction' }
-    hl.fennelTSField = { link = 'TSField' }
     hl.FennelStringDelimiter = { fg = v.Colors.Hint }
     hl.FennelParen = { fg = v.Foreground.emphasis, bg = v.Shade.default }
     hl.FennelSpecialForm = { fg = v.Colors.Trace, italic = true }
@@ -224,7 +226,9 @@ local function Theme(v)
 
     hl.helpHyperTextEntry = { link = 'TSURI' }
     hl.helpSectionDelim = { fg = v.Colors.Error, bold = true, bg = v.Shade.default }
-    hl.helpHyperTextJump = { fg = v.Colors.Note, underdotted = true, bg = v.Shade.default }
+    hl.helpHyperTextJump = {
+        fg = v.Colors.Note, underdotted = true, bg = v.Shade.default
+    }
     hl.helpHeader = { link = 'Title' }
     hl.helpExample = { fg = v.Colors.Info, bg = v.Shade.default }
     hl.helpURL = { fg = v.Colors.Note, underline = true, bg = v.Shade.default }
@@ -390,7 +394,7 @@ local function Theme(v)
     hl.FzfLuaTitle = { fg = v.Foreground.default, bold = true }
     hl.FzfLuaCursorLine = { link = 'CursorLine' }
     hl.FzfLuaCursorLineNr = { link = 'CursorLineNr' }
-    hl.editorconfigProperty = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.dosiniLabel = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl.dosiniHeader = { fg = v.Colors.Error, bg = v.Shade.default }
     --- TSExtended
     hl.TSExtStringDelimiter = { fg = v.Colors.Note, bg = v.Shade.default }
