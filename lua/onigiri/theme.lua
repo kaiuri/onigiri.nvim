@@ -1,4 +1,3 @@
----BUG: line/column guides not changing background of groups behind it
 ---Takes in a FunctionalVariables dictionary, outputs a colorscheme table.
 ---@param v FunctionalVariables
 ---@return {[string]: HighlightDefMap}
@@ -396,12 +395,9 @@ local function Theme(v)
     hl.FzfLuaCursorLineNr = { link = 'CursorLineNr' }
     hl.dosiniLabel = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl.dosiniHeader = { fg = v.Colors.Error, bg = v.Shade.default }
-    --- TSExtended
-    hl.TSExtStringDelimiter = { fg = v.Colors.Note, bg = v.Shade.default }
-    -- hl.TSExtYamlField = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.CopilotSuggestion = { bg = v.Shade.emphasis, fg = v.Foreground.muted }
+    hl['@string.delimiter'] = { fg = v.Colors.Note, bg = v.Shade.default }
     return hl
 end
 
-return {
-    Theme = Theme,
-}
+return { Theme = Theme }

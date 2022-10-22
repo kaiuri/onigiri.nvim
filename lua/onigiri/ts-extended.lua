@@ -4,8 +4,8 @@ local function load()
     hl['@markdown.marker.list'] = { link = 'markdownListMarker' }
     hl['@markdown.marker.break'] = { link = 'markdownRule' }
     -- hl['@yaml.field'] = { link = 'TSExtYamlField' }
-    hl['@string.delimiter'] = { link = 'TSExtStringDelimiter' }
-    hl['@generic.type'] = { link = 'TSExtGenericType' }
+    hl['@string.delimiter'] = { link = '@string.delimiter' }
+    hl['@generic.type'] = { link = '@generic.type' }
     hl['@markdown.marker.h'] = { link = 'markdownH1Delimiter' }
     -- hl['@markdown.marker.h2'] = { link = 'markdownH2Delimiter' }
     -- hl['@markdown.marker.h3'] = { link = 'markdownH3Delimiter' }
