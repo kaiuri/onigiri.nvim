@@ -11,14 +11,23 @@
 
 (file_redirect destination: (word) @constant (#any-of? @constant "/dev/null"))
 
-; ["|"   "|&"
-;  "||"  "&&"
-;  ">"   ">>"
-;  "<"   "<<"
-;  "<<-" "<<<"
-;  "=="  "!="
-;  ";&"  ";;&"
-;  ";"   ";;"] @operator
+["|&"
+ ">&"
+ ; ">"
+ ; ">>"
+ ; "<"
+ ; "<<"
+ ; "<<<"
+ ; "=="
+ ; "!="
+ ; ";&"
+ ; ";;&"
+ ; ";;"
+ ";"
+ "<<-"] @operator
+
+(file_descriptor) @number
+
 
 ; ((word) @type (#lua-match? @type "^[-].*"))
 (test_command
