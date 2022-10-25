@@ -1,4 +1,4 @@
-; extends 
+; extends
 
 ((sym_lit) @keyword (#any-of? @keyword "let" "defn" "defmacro"))
 
@@ -15,4 +15,3 @@
  marker: ("@") @character.special)
 
 (kwd_lit) @field
- 
