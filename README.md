@@ -25,14 +25,16 @@ local presets = require 'onigiri'.presets[<preset_colors>]
 
 - `bash`
 - `clojure`
+- `commonlisp`
 - `fennel`
 - `go`
 - `help`
+- `javascript`
 - `json`
 - `lua`
 - `make`
-- `markdown`
 - `markdown_inline`
+- `markdown`
 - `rust`
 - `toml`
 - `typescript`
