@@ -10,6 +10,7 @@ local lshift = bit.lshift
 local bor = bit.bor
 
 --- RGB block
+---@private
 local RGB = {}
 ---Normalize any hex color format to 0xRRGGBB
 ---@param hex_str string
@@ -41,6 +42,7 @@ RGB.to_hex = function(rgb)
 end
 
 --- HSL block
+---@private
 local HSL = {}
 
 ---@param rgb number[] # {r, g, b}
@@ -68,6 +70,11 @@ HSL.from_rgb = function(rgb) -- standard rgb to hsl
     end
     return { h, s, l }
 end
+
+---@param p number
+---@param q number
+---@param t number
+---@return number
 local function hue2rgb(p, q, t)
     if t < 0 then t = t + 1 end
     if t > 1 then t = t - 1 end
@@ -77,6 +84,8 @@ local function hue2rgb(p, q, t)
     return p
 end
 
+---@param hsl number[] # {h, s, l}
+---@return number[] # {r, g, b}
 HSL.to_rgb = function(hsl)
     local h = hsl[1]
     local s = hsl[2]
@@ -94,10 +103,16 @@ HSL.to_rgb = function(hsl)
     return { r * 255, g * 255, b * 255 }
 end
 
+
+---@param hsl number[] # {h, s, l}
+---@return string # #ffffff, etc
 HSL.to_hex = function(hsl)
     local rgb = HSL.to_rgb(hsl)
     return RGB.to_hex(rgb)
 end
+
+---@param hex string
+---@return number[] # {h, s, l}
 HSL.from_hex = function(hex)
     local rgb = RGB.from_hex(hex)
     return HSL.from_rgb(rgb)
@@ -107,11 +122,11 @@ end
 ---@field hsl number[]
 
 ---@type Color
-local chroma = {}
-chroma.__index = chroma
+local Chroma = {}
+Chroma.__index = Chroma
 
-function chroma.new(hex)
-    local self = setmetatable({}, chroma)
+function Chroma.new(hex)
+    local self = setmetatable({}, Chroma)
     local rgb = RGB.from_hex(hex)
     self.hsl = HSL.from_rgb(rgb)
     return self
@@ -119,66 +134,67 @@ end
 
 ---Color:to_hex
 ---@return string
-function chroma:hex()
+function Chroma:hex()
     return HSL.to_hex(self.hsl)
 end
 
 --- Color method darken
 ---@param amount number
 ---@return Color
-function chroma:darken(amount)
+function Chroma:darken(amount)
     local hsl = self.hsl
     hsl[2] = hsl[2] - amount
-    return chroma.new(HSL.to_hex(hsl))
+    return Chroma.new(HSL.to_hex(hsl))
 end
 
 --- Color method lighten
 ---@param amount number
 ---@return Color
-function chroma:lighten(amount)
+function Chroma:lighten(amount)
     local hsl = self.hsl
     hsl[2] = hsl[2] + amount
-    return chroma.new(HSL.to_hex(hsl))
+    return Chroma.new(HSL.to_hex(hsl))
 end
 
 --- Color method saturate
 ---@param amount number
 ---@return Color
-function chroma:saturate(amount)
+function Chroma:saturate(amount)
     local hsl = self.hsl
     hsl[2] = hsl[2] + amount
-    return chroma.new(HSL.to_hex(hsl))
+    return Chroma.new(HSL.to_hex(hsl))
 end
 
 --- Color method desaturate
 ---@param amount number
 ---@return Color
-function chroma:desaturate(amount)
+function Chroma:desaturate(amount)
     local hsl = self.hsl
     hsl[2] = hsl[2] - amount
-    return chroma.new(HSL.to_hex(hsl))
+    return Chroma.new(HSL.to_hex(hsl))
 end
 
-function chroma:rotate(amount)
+function Chroma:rotate(amount)
     local hsl = self.hsl
     hsl[1] = hsl[1] + amount
-    return chroma.new(HSL.to_hex(hsl))
+    return Chroma.new(HSL.to_hex(hsl))
 end
 
-function chroma:complement()
+function Chroma:complement()
     local hsl = self.hsl
     hsl[1] = hsl[1] + 0.5
-    return chroma.new(HSL.to_hex(hsl))
+    return Chroma.new(HSL.to_hex(hsl))
 end
 
-function chroma:analogous()
+function Chroma:analogous()
     local hsl = self.hsl
     local h = hsl[1]
     return {
-        chroma.new(HSL.to_hex(hsl)),
-        chroma.new(HSL.to_hex { h + 0.083, hsl[2], hsl[3] }),
-        chroma.new(HSL.to_hex { h - 0.083, hsl[2], hsl[3] }),
+        Chroma.new(HSL.to_hex(hsl)),
+        Chroma.new(HSL.to_hex { h + 0.083, hsl[2], hsl[3] }),
+        Chroma.new(HSL.to_hex { h - 0.083, hsl[2], hsl[3] }),
     }
 end
 
-return chroma
+
+return Chroma.new
