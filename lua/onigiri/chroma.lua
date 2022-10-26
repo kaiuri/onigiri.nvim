@@ -186,15 +186,4 @@ function Chroma:complement()
     return Chroma.new(HSL.to_hex(hsl))
 end
 
-function Chroma:analogous()
-    local hsl = self.hsl
-    local h = hsl[1]
-    return {
-        Chroma.new(HSL.to_hex(hsl)),
-        Chroma.new(HSL.to_hex { h + 0.083, hsl[2], hsl[3] }),
-        Chroma.new(HSL.to_hex { h - 0.083, hsl[2], hsl[3] }),
-    }
-end
-
-
 return Chroma.new

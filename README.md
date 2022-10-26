@@ -47,6 +47,25 @@ local function pick(color)
 end
 ```
 
+### I like to experiment 🧙!!!
+
+`onigiri.nvim` provides a simple port of [chroma-js](https://www.npmjs.com/package/chroma-js). It needs Neovim with LuaJIT or its [BitOp](https://bitop.luajit.org/) module available, else you'll get an error. Worry not, it's available, unless you compiled Neovim without LuaJIT. Which is hardly ever the case.
+
+```lua
+local chroma = require 'onigiri'.chroma
+---@method hex()              # returns hex string from chroma object,
+---@method analogous()        # returns its analogous color
+---@method darken(amount)     # [0,1]
+---@method desaturate(amount) # [0,1]
+---@method lighten(amount)    # [0,1]
+---@method rotate(amount)     # [0,360]
+---@method saturate(amount)   # [0,1]
+local my_color = chroma('#123123') -- Color object
+print(my_color:hex())              -- '#123123'
+print(my_color:complement():hex()) -- '#311220'
+-- etc, ad nauseam, bla, bla, bla ...
+```
+
 ## Usage
 
 ### Requirements
@@ -109,3 +128,7 @@ vim.g.onigiri = {
 #### Tips
 
 Sharkdp's [pastel](https://github.com/sharkdp/pastel) CLI tool offers a great way to choose your colors.
+
+## Contributing
+
+Anything goes on the issue section. Please use commit messages that follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
