@@ -35,6 +35,7 @@ local presets = require 'onigiri'.presets[<preset_colors>]
 - `make`
 - `markdown_inline`
 - `markdown`
+- `python`
 - `rust`
 - `toml`
 - `typescript`

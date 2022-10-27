@@ -157,6 +157,7 @@ local function Theme(v)
     hl['@punctuation.bracket'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
     -- hl['@punctuation.bracket.toml'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@punctuation.delimiter'] = { link = 'Delimiter', bg = v.Shade.emphasis }
+    hl['@punctuation.delimiter.python'] = { fg = v.Foreground.emphasis, bg = v.Shade.emphasis }
     hl['@punctuation.delimiter.yaml'] = { fg = v.Colors.Note, bg = v.Shade.emphasis }
     -- hl['@punctuation.delimiter.lua'] = { fg = v.Colors.Hint, bg = v.Shade.emphasis }
     hl['@punctuation.special'] = { fg = v.Colors.Hint, bg = v.Shade.default }
