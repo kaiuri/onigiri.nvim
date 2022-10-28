@@ -15,7 +15,7 @@ Set the provided variables and get a well-balanced colorscheme.
 local presets = require 'onigiri'.presets[<preset_colors>]
 ```
 
-- Default is `mariana` - Sublime's Mariana theme.
+- Default is `mariana` - Sublime's Mariana. Check the wiki for more examples - feel free to post yours BTW
 
 ![](https://user-images.githubusercontent.com/19148108/194763253-1ed1f307-db31-4648-9978-8a3d6fb61bf9.jpg)
 
