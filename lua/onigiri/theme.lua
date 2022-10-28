@@ -117,9 +117,11 @@ local function Theme(v)
     hl['@character.special'] = { link = 'SpecialChar' }
     hl['@comment'] = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl['@conditional'] = { fg = v.Colors.Trace, bg = v.Shade.default }
+    hl['@conditional'] = { fg = v.Colors.Error, bg = v.Shade.default }
     -- hl['@conditional.bash'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@constant'] = { link = 'Constant' }
     hl['@constant.builtin'] = { fg = v.Colors.Error, bg = v.Shade.default, italic = true }
+    hl['@constant.builtin.python'] = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
     hl['@constant.macro'] = { link = 'Define' }
     hl['@constructor.lua'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
     hl['@enum'] = { link = 'TSType' }
@@ -163,6 +165,7 @@ local function Theme(v)
     hl['@punctuation.special'] = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl['@punctuation.special.markdown'] = { fg = v.Colors.Danger, bg = v.Shade.emphasis, bold = false }
     hl['@repeat'] = { fg = v.Colors.Trace, bg = v.Shade.default }
+    hl['@repeat.python'] = { fg = v.Colors.Error, bg = v.Shade.default }
     -- hl['@repeat.bash'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@string'] = { fg = v.Colors.Info, bg = v.Shade.default }
     hl['@string.escape'] = { link = 'SpecialChar' }

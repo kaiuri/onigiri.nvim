@@ -48,8 +48,8 @@ local vars = {
     },
     Colors = {
         Trace     = c.pink, -- #cc8ec6
-        Accent    = c.blue[2], -- #5c99d6
-        Note      = c.blue[1], -- #95b2d6
+        Accent    = c.blue[2], -- #95b2d6
+        Note      = c.blue[1], -- #5c99d6
         Hint      = c.cyan, -- #5fb4b4
         Info      = c.green, -- #99c794
         Important = c.yellow, -- #fac761

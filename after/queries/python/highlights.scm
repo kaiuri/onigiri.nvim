@@ -10,3 +10,6 @@
 
 (keyword_argument
     name: (identifier) @field)
+
+(function_definition
+    ":" @punctuation.delimiter)
