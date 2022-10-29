@@ -145,7 +145,7 @@ local function Theme(v)
     hl['@label.json'] = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl['@label.toml'] = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl['@method'] = { fg = v.Colors.Hint, bg = v.Shade.default }
-    hl['@method.call'] = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl['@method.call'] = { fg = v.Colors.Note, bg = v.Shade.default }
     hl['@namespace'] = { fg = v.Colors.Caution, bg = v.Shade.default }
     hl['@number'] = { link = 'Number' }
     hl['@number.bash'] = { fg = v.Colors.Caution, bg = v.Shade.default }

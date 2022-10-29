@@ -4,7 +4,7 @@
 (macro_invocation "!" @punctuation.special)
 
 (fragment_specifier) @type.builtin
-(metavariable) @parameter 
+(metavariable) @parameter
 
 (token_binding_pattern ":" @punctuation.special)
 
@@ -24,7 +24,7 @@
 (inner_attribute_item
  (meta_item
   (identifier) @function.call))
- 
+
 (inner_attribute_item
  (meta_item
   (meta_arguments
@@ -35,14 +35,15 @@
  (attr_item
     (identifier) @function.call))
 
-(let_declaration ["let"] @keyword.function) 
-(closure_expression ["move"] @keyword.function)
+(let_declaration ["let"] @keyword.function)
+
+["move"] @keyword.function
 
 (type_arguments  ["<" ">"] @punctuation.bracket)
 (type_parameters ["<" ">"] @punctuation.bracket)
 
-(lifetime [ "'" ] @string.delimiter) 
-(lifetime (identifier) @tag) 
+(lifetime [ "'" ] @string.delimiter)
+(lifetime (identifier) @tag)
 
 (self_parameter
  (self) @parameter)
