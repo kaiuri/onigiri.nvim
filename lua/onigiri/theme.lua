@@ -273,6 +273,12 @@ local function Theme(v)
     hl.CmpItemKindTypeParameter = { fg = v.Colors.Caution }
     hl.CmpItemKindVariable = { fg = v.Foreground.default }
 
+    hl.LeapMatch = { fg = v.Background.emphasis, bg = v.Colors.Danger, bold = true }
+    hl.LeapLabelPrimary = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
+    hl.LeapLabelSecondary = { fg = v.Background.emphasis, bg = v.Colors.Warn, bold = true }
+    hl.LeapLabelSelected = { fg = v.Background.emphasis, bg = v.Colors.Important, bold = true }
+    hl.LeapBackdrop = { fg = v.Foreground.muted, bg = v.Shade.default }
+
     hl.Sneak = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
     hl.SneakLabel = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
 

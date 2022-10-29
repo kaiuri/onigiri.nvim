@@ -1,4 +1,3 @@
--- local gray = {}
 local c = {
     gray   = {
         [1]  = '#000000',
@@ -6,11 +5,12 @@ local c = {
         [3]  = '#2e353e', --'#272e35', -- float bg
         [4]  = '#2f373f',
         [5]  = '#303841', -- bg
-        [6]  = '#46525c',
-        [7]  = '#a6acb8',
-        [8]  = '#d8dee9', -- '#d5dee6', -- fg
-        [9]  = '#f7f7f7',
-        [10] = '#ffffff',
+        [6]  = '#3b454e',
+        [7]  = '#46525c',
+        [8]  = '#a6acb8',
+        [9]  = '#d8dee9', -- '#d5dee6', -- fg
+        [10] = '#f7f7f7',
+        [11] = '#ffffff',
     },
     green  = '#99c794',
     orange = {
@@ -32,17 +32,17 @@ local c = {
 ---@type FunctionalVariables
 local vars = {
     Foreground = {
-        surface  = c.gray[6],
-        muted    = c.gray[7],
-        default  = c.gray[8],
-        emphasis = c.gray[9],
+        surface  = c.gray[7],
+        muted    = c.gray[8],
+        default  = c.gray[9],
+        emphasis = c.gray[10],
     },
     Shade = {
         default  = c.gray[4],
         emphasis = c.gray[2],
     },
     Background = {
-        muted    = '#3b454e', -- c.gray[6],
+        muted    = c.gray[6], -- c.gray[6],
         default  = c.gray[5],
         emphasis = c.gray[3],
     },
