@@ -15,3 +15,5 @@
   arguments: (_))
 
 
+(intersection_type
+    "&" @keyword.operator)

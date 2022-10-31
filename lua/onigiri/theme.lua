@@ -117,7 +117,6 @@ local function Theme(v)
     hl['@character.special'] = { link = 'SpecialChar' }
     hl['@comment'] = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl['@conditional'] = { fg = v.Colors.Trace, bg = v.Shade.default }
-    hl['@conditional'] = { fg = v.Colors.Error, bg = v.Shade.default }
     -- hl['@conditional.bash'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@constant'] = { link = 'Constant' }
     hl['@constant.builtin'] = { fg = v.Colors.Error, bg = v.Shade.default, italic = true }
@@ -407,7 +406,10 @@ local function Theme(v)
     hl.dosiniLabel = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl.dosiniHeader = { fg = v.Colors.Error, bg = v.Shade.default }
     hl.CopilotSuggestion = { bg = v.Shade.emphasis, fg = v.Foreground.muted }
+    hl.NoiceCursor = { fg = v.Foreground.default }
+
     hl['@string.delimiter'] = { fg = v.Colors.Note, bg = v.Shade.default }
+
     return hl
 end
 
