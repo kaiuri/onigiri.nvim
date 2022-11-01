@@ -12,7 +12,7 @@
 (file_redirect destination: (word) @constant (#any-of? @constant "/dev/null"))
 
 ["|&"
- ">&"
+ "&>"
  ; ">"
  ; ">>"
  ; "<"
