@@ -407,7 +407,6 @@ local function Theme(v)
     hl.dosiniHeader = { fg = v.Colors.Error, bg = v.Shade.default }
     hl.CopilotSuggestion = { bg = v.Shade.emphasis, fg = v.Foreground.muted }
     hl.NoiceCursor = { fg = v.Foreground.default }
-
     hl['@string.delimiter'] = { fg = v.Colors.Note, bg = v.Shade.default }
 
     return hl
