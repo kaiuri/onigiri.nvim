@@ -1,6 +1,6 @@
 # (WIP) onigiri
 
-## Description
+## Description :rice:
 
 Not a colorscheme, your colorscheme. This plugin removes the boiler plate needed to create the colorscheme you always wanted!
 Set the provided variables and get a well-balanced colorscheme.
