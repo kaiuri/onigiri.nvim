@@ -1,5 +1,5 @@
 local nvim_set_hl = vim.api.nvim_set_hl
-local chroma = require('onigiri.chroma')
+-- local chroma = require('onigiri.chroma')
 local g = vim.g
 
 local Theme = require 'onigiri.theme'.Theme
@@ -37,5 +37,5 @@ return {
     config  = config,
     colors  = config(),
     presets = presets,
-    chroma  = chroma,
+    -- chroma  = chroma,
 }

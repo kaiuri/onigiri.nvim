@@ -82,6 +82,7 @@ local function pick(color)
 end
 ```
 
+<!--
 ### I like to experiment ⚗️
 
 `onigiri` provides a simple port of [chroma-js](https://www.npmjs.com/package/chroma-js). It needs Neovim with LuaJIT or its [BitOp](https://bitop.luajit.org/) module available, else you'll get an error. Worry not, it's available, unless you compiled Neovim without LuaJIT. Which is hardly ever the case.
@@ -104,6 +105,7 @@ print(my_color:complement():hex()) -- '#311220'
 
 -- etc, ad nauseam, bla, bla, bla ...
 ```
+-->
 
 ### Installation 🔌
 

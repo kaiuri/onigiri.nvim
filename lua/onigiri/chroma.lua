@@ -146,10 +146,20 @@ end
 local Chroma = {}
 Chroma.__index = Chroma
 
-function Chroma.new(hex)
+---@param color string | number[]
+---@param mode? 'hsl' | 'rgb' | 'hex' | 'lab'
+function Chroma.new(color, mode)
     local self = setmetatable({}, Chroma)
-    local rgb = RGB.from_hex(hex)
-    self.__hsl = HSL.from_rgb(rgb)
+    mode = mode or 'hex'
+    if mode == 'hsl' and type(color) == 'table' then
+        self.__hsl = color
+    elseif mode == 'rgb' and type(color) == 'table' then
+        self.__hsl = HSL.from_rgb(color)
+    elseif mode == 'lab' and type(color) == 'table' then
+        self.__hsl = LAB.to_hsl(color)
+    elseif type(color) == 'string' then
+        self.__hsl = HSL.from_hex(color)
+    end
     return self
 end
 
