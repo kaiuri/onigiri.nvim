@@ -1,3 +1,3 @@
 ; extends
 
-(string ["\""] @string.delimiter)
+(string ["\"" "'" ] @string.delimiter)
