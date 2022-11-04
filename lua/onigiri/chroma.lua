@@ -119,8 +119,28 @@ HSL.from_hex = function(hex)
     return HSL.from_rgb(rgb)
 end
 
+local LAB = {}
+
+LAB.from_hsl = function(hsl)
+    local h = hsl[1]
+    local s = hsl[2]
+    local l = hsl[3]
+    local a = s * math.cos(h * 2 * math.pi)
+    local b = s * math.sin(h * 2 * math.pi)
+    return { l, a, b }
+end
+
+LAB.to_hsl = function(lab)
+    local l = lab[1]
+    local a = lab[2]
+    local b = lab[3]
+    local h = math.atan2(b, a) / (2 * math.pi)
+    local s = math.sqrt(a * a + b * b)
+    return { h, s, l }
+end
+
 ---@class Color
----@field hsl number[]
+---@field __hsl number[]
 
 ---@type Color
 local Chroma = {}
@@ -129,21 +149,16 @@ Chroma.__index = Chroma
 function Chroma.new(hex)
     local self = setmetatable({}, Chroma)
     local rgb = RGB.from_hex(hex)
-    self.hsl = HSL.from_rgb(rgb)
+    self.__hsl = HSL.from_rgb(rgb)
     return self
 end
 
----Color:to_hex
----@return string
-function Chroma:hex()
-    return HSL.to_hex(self.hsl)
-end
 
 --- Color method darken
 ---@param amount number
 ---@return Color
 function Chroma:darken(amount)
-    local hsl = self.hsl
+    local hsl = self.__hsl
     hsl[2] = hsl[2] - amount
     return Chroma.new(HSL.to_hex(hsl))
 end
@@ -152,7 +167,7 @@ end
 ---@param amount number
 ---@return Color
 function Chroma:lighten(amount)
-    local hsl = self.hsl
+    local hsl = self.__hsl
     hsl[2] = hsl[2] + amount
     return Chroma.new(HSL.to_hex(hsl))
 end
@@ -161,7 +176,7 @@ end
 ---@param amount number
 ---@return Color
 function Chroma:saturate(amount)
-    local hsl = self.hsl
+    local hsl = self.__hsl
     hsl[2] = hsl[2] + amount
     return Chroma.new(HSL.to_hex(hsl))
 end
@@ -170,21 +185,37 @@ end
 ---@param amount number
 ---@return Color
 function Chroma:desaturate(amount)
-    local hsl = self.hsl
+    local hsl = self.__hsl
     hsl[2] = hsl[2] - amount
     return Chroma.new(HSL.to_hex(hsl))
 end
 
 function Chroma:rotate(amount)
-    local hsl = self.hsl
+    local hsl = self.__hsl
     hsl[1] = hsl[1] + amount
     return Chroma.new(HSL.to_hex(hsl))
 end
 
 function Chroma:complement()
-    local hsl = self.hsl
+    local hsl = self.__hsl
     hsl[1] = hsl[1] + 0.5
     return Chroma.new(HSL.to_hex(hsl))
+end
+
+function Chroma:rgb()
+    return HSL.to_rgb(self.__hsl)
+end
+
+function Chroma:hsl()
+    return self.__hsl
+end
+
+function Chroma:lab()
+    return LAB.from_hsl(self.__hsl)
+end
+
+function Chroma:hex()
+    return HSL.to_hex(self.__hsl)
 end
 
 return Chroma.new
