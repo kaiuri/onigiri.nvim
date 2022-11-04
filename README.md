@@ -84,7 +84,7 @@ end
 
 ### I like to experiment ⚗️
 
-`onigiri.nvim` provides a simple port of [chroma-js](https://www.npmjs.com/package/chroma-js). It needs Neovim with LuaJIT or its [BitOp](https://bitop.luajit.org/) module available, else you'll get an error. Worry not, it's available, unless you compiled Neovim without LuaJIT. Which is hardly ever the case.
+`onigiri` provides a simple port of [chroma-js](https://www.npmjs.com/package/chroma-js). It needs Neovim with LuaJIT or its [BitOp](https://bitop.luajit.org/) module available, else you'll get an error. Worry not, it's available, unless you compiled Neovim without LuaJIT. Which is hardly ever the case.
 
 ```lua
 local chroma = require 'onigiri'.chroma
@@ -120,7 +120,7 @@ vim.cmd[[ colo onigiri ]]
 
 ### Configuration 🔧
 
-This plugin supplies a global option `vim.g.onigiri` with one key, at the moment. Must be called before `colo onigiri`.
+Done through global `vim.g.onigiri`. Must be called before `colo onigiri`.
 
 ```lua
 -- Defaults
