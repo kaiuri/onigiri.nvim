@@ -136,6 +136,7 @@ local function Theme(v)
     hl['@include'] = { fg = v.Colors.Trace, bg = v.Shade.default }
     hl['@interface'] = { link = 'TSType' }
     hl['@keyword'] = { fg = v.Colors.Error, bg = v.Shade.default }
+    hl['@keyword.rust'] = { fg = v.Colors.Trace, bg = v.Shade.default }
     hl['@keyword.css'] = { fg = v.Colors.Trace, italic = true, bg = v.Shade.default }
     hl['@keyword.function'] = { fg = v.Colors.Trace, italic = true, bg = v.Shade.default }
     hl['@keyword.operator'] = { fg = v.Colors.Danger, bg = v.Shade.default }
