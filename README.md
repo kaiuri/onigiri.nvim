@@ -159,6 +159,24 @@ vim.g.onigiri = {
 }
 ```
 
+### Examples
+
+#### Mariana
+
+<img src="https://user-images.githubusercontent.com/19148108/200832322-3f7b2888-711d-4f13-ba84-163eba7cd0c1.png" width="60%">
+
+#### Solarized Dark
+
+<img src="https://user-images.githubusercontent.com/19148108/200832525-27df0b78-e447-4d16-8aeb-60b267d76a65.png" width="60%">
+
+#### Tokyo Night-ish
+
+<img src="https://user-images.githubusercontent.com/19148108/200832796-5d0a0778-cea1-4754-8a1d-fc8027101506.png" width="60%">
+
+#### Gruvbox-ish
+
+<img src="https://user-images.githubusercontent.com/19148108/200833531-46513bd3-e8be-4723-8680-e457f2d5161e.png" width="60%">
+
 ## Contributing ✍️
 
 Anything goes on the issue section. Please use commit messages that follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
