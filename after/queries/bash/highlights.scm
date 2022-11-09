@@ -1,9 +1,16 @@
 ; extends
 (expansion [ "${" "}" ] @punctuation.special)
 
+; (command_substitution
+;     "$("  @punctuation.special
+;      (_)
+;      ")"  @punctuation.special
+;      .)
+
 (subscript index: (word) @operator)
 
 [ "[[" "]]"
+   "[" "]"
   "((" "))"] @function.builtin
 
 (string [ "\"" ] @string.delimiter)
@@ -20,20 +27,18 @@
  "<<<"
  ; "=="
  ; "!="
- ; ";&"
- ; ";;&"
- ; ";;"
+ ";&"
+ ";;&"
+ ";;"
  ";"
+ "!"
  "<<-"] @operator
 
 (file_descriptor) @number
 
 
-; ((word) @type (#lua-match? @type "^[-].*"))
-(test_command
-  "[["
-  (binary_expression
-   right:
-    (concatenation
-      (word) @punctuation.special
-      (#any-of? @punctuation.special "\*"))))
+; not sure about this one
+; (case_statement
+;     (case_item
+;         value: (word) @regex (#eq? @regex "*")
+;         (")") @punctuation.special))
