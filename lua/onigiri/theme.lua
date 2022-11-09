@@ -123,7 +123,6 @@ local function Theme(v)
     hl['@constant.builtin.python'] = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
     hl['@constant.macro'] = { link = 'Define' }
     hl['@constructor.lua'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
-    hl['@enum'] = { link = 'TSType' }
     hl['@field'] = { fg = v.Colors.Accent, bg = v.Shade.default }
     hl['@field.toml'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@field.yaml'] = { fg = v.Colors.Hint, bg = v.Shade.default }
@@ -134,13 +133,12 @@ local function Theme(v)
     hl['@function.macro'] = { fg = v.Colors.Note, bg = v.Shade.default }
     hl['@function.macro.commonlisp'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@include'] = { fg = v.Colors.Trace, bg = v.Shade.default }
-    hl['@interface'] = { link = 'TSType' }
     hl['@keyword'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@keyword.rust'] = { fg = v.Colors.Trace, bg = v.Shade.default }
     hl['@keyword.css'] = { fg = v.Colors.Trace, italic = true, bg = v.Shade.default }
     hl['@keyword.function'] = { fg = v.Colors.Trace, italic = true, bg = v.Shade.default }
     hl['@keyword.operator'] = { fg = v.Colors.Danger, bg = v.Shade.default }
-    hl['@keyword.return'] = { fg = v.Colors.Error, bg = v.Shade.default }
+    hl['@keyword.return'] = { fg = v.Colors.Trace, bg = v.Shade.default }
     hl['@label'] = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl['@label.json'] = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl['@label.toml'] = { fg = v.Colors.Hint, bg = v.Shade.default }
@@ -185,7 +183,9 @@ local function Theme(v)
     hl['@text.title'] = { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
     hl['@text.underline'] = { underline = true }
     hl['@text.uri'] = { fg = v.Colors.Note, underdotted = true, bg = v.Shade.default }
-    hl['@type'] = { link = 'Type' }
+    hl['@enum'] = { fg = v.Colors.Caution, bg = v.Shade.default }
+    hl['@interface'] = { fg = v.Colors.Caution, bg = v.Shade.default }
+    hl['@type'] = { fg = v.Colors.Caution, bg = v.Shade.default }
     hl['@type.builtin'] = { fg = v.Colors.Note, italic = true, bg = v.Shade.default }
     hl['@type.qualifier'] = { fg = v.Colors.Error, bg = v.Shade.default }
     hl['@variable'] = { fg = v.Foreground.default, bg = v.Shade.default }

@@ -1,12 +1,14 @@
 ; extends
 ["'" "\"" "`"] @string.delimiter
 
-["import" "from"] @keyword
+["export" "import" "from"] @include
 
 (template_substitution
     ["${" "}"] @punctuation.special)
 
 "module" @function.macro
+
+
 
 (new_expression
   constructor:
@@ -16,8 +18,10 @@
 
 
 (intersection_type
-    "&" @keyword.operator)
+    "&" @symbol)
 
+(union_type
+    "|" @symbol)
 
 ; {start_row}  {start_col}  {end_row}  {end_col}
 
