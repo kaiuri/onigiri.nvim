@@ -277,7 +277,7 @@ local function Theme(v)
     hl.LeapLabelPrimary = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
     hl.LeapLabelSecondary = { fg = v.Background.emphasis, bg = v.Colors.Warn, bold = true }
     hl.LeapLabelSelected = { fg = v.Background.emphasis, bg = v.Colors.Important, bold = true }
-    hl.LeapBackdrop = { fg = v.Foreground.muted, bg = v.Shade.default }
+    hl.LeapBackdrop = { fg = 'NONE', bg = v.Background.emphasis }
 
     hl.Sneak = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
     hl.SneakLabel = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
