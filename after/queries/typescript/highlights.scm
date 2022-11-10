@@ -8,8 +8,6 @@
 
 "module" @function.macro
 
-
-
 (new_expression
   constructor:
    (member_expression
