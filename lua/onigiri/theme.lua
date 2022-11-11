@@ -376,7 +376,7 @@ local function Theme(v)
     hl.LspProperty = { link = '@property' }
     hl.LspEnumMember = { link = '@field' }
     -- hl.LspEvent   = {}
-    hl.LspFunction = { fg = v.Colors.Note, bg = v.Shade.default }
+    hl.LspFunction = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl.LspMethod = { fg = v.Colors.Hint }
     hl.LspMacro = { link = 'Macro' }
     hl.LspKeyword = { fg = v.Colors.Danger }
