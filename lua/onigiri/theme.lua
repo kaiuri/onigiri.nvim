@@ -424,35 +424,32 @@ local function Theme(
     hl.CocFloating = { link = 'NormalFloat' }
     hl.CocFadeOut = { link = 'Comment' }
     hl.CocPumVirtualText = { link = 'Comment' }
-
-    --- Coc{Warn, Info, Hint, Error}
-    --- CocTextReference
+    --CocTextReference
     hl.CocHighlightRead = { bg = v.Background.emphasis }
     hl.CocHighlightText = { bg = v.Background.emphasis }
     hl.CocHighlightWrite = { bg = v.Background.emphasis }
     hl.CocHoverRange = { bg = v.Background.emphasis }
-
     hl.CocHintFloat = { link = 'NormalFloat' }
     hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl.CocInlayHintType = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
-    --- CocSem
-
+    --CocSem
     hl.CocSemDeclarationFunction = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl.CocSemDeclarationMethod = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, bg = v.Shade.default, italic = true }
     hl.CocSemRegexp = { fg = v.Colors.Hint, bg = v.Shade.default }
     hl.CocSemDeclarationType = { fg = v.Colors.Caution, bg = v.Shade.default }
     hl.CocSemDecorator = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
     hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
     hl.CocSemDefaultLibraryType = { fg = v.Colors.Note, italic = true, bg = v.Shade.default }
-    hl.CocSemDefaultLibraryVariable = { fg = v.Colors.Error, bg = v.Shade.default, italic = true }
+    hl.CocSemDefaultLibraryVariable = { fg = v.Colors.Caution, bg = v.Shade.default }
     hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger, bg = v.Shade.default }
     hl.CocSemEnumMember = { fg = v.Colors.Accent, bg = v.Shade.default }
     hl.CocSemMacro = { fg = v.Colors.Note, bg = v.Shade.default }
     hl.CocSemProperty = { fg = v.Colors.Accent, bg = v.Shade.default }
     hl.CocSemStruct = { fg = v.Colors.Caution, bg = v.Shade.default }
     hl.CocSemVariable = { fg = v.Foreground.default, bg = v.Shade.default }
-
+    hl.CocSemNamespace = { fg = v.Colors.Caution, bg = v.Shade.default }
     return hl
 end
 
