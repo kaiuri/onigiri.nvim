@@ -1,10 +1,10 @@
 ---@meta
 
 ---@class FunctionalVariables
----@field Background table,
----@field Foreground table,
----@field Shade table,
----@field Colors table
+---@field Background {default: string, emphasis: string, muted: string},
+---@field Foreground {default: string, emphasis: string, muted: string, surface: string},
+---@field Shade {default: string, emphasis: string},
+---@field Colors {Accent: string, Caution: string, Danger: string, Error: string, Hint: string, Important: string, Info: string, Note: string, Trace: string, Warn: string}
 
 ---@class HighlightDefMap
 ---@field fg? string: color name or "#RRGGBB", see note.

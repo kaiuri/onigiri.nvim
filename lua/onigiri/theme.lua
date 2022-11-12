@@ -1,7 +1,11 @@
 ---Takes in a FunctionalVariables dictionary, outputs a colorscheme table.
 ---@param v FunctionalVariables
----@return {[string]: HighlightDefMap}
-local function Theme(v)
+---@return { [string]: HighlightDefMap }
+local function Theme(
+    v
+)
+    if not v then return {} end
+
     ---@type {[string]: HighlightDefMap }
     local hl = {}
 
@@ -121,7 +125,7 @@ local function Theme(v)
     hl['@constant'] = { link = 'Constant' }
     hl['@constant.builtin'] = { fg = v.Colors.Error, bg = v.Shade.default, italic = true }
     hl['@constant.builtin.python'] = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
-    hl['@constant.macro'] = { link = 'Define' }
+    hl['@constant.macro'] = { fg = v.Colors.Trace, italic = true, bg = v.Shade.default }
     hl['@constructor.lua'] = { fg = v.Foreground.emphasis, bg = v.Shade.default }
     hl['@field'] = { fg = v.Colors.Accent, bg = v.Shade.default }
     hl['@field.toml'] = { fg = v.Colors.Error, bg = v.Shade.default }
@@ -409,6 +413,45 @@ local function Theme(v)
     hl.CopilotSuggestion = { bg = v.Shade.emphasis, fg = v.Foreground.muted }
     hl.NoiceCursor = { fg = v.Foreground.default }
     hl['@string.delimiter'] = { fg = v.Colors.Note, bg = v.Shade.default }
+
+    --- CocUI
+    hl.CocCodeLens = { fg = v.Foreground.muted, bg = v.Shade.default }
+    hl.CocDisabled = { fg = v.Foreground.muted, bg = v.Shade.default }
+    hl.CocFloatActive = { link = 'PmenuSel' }
+    hl.CocFloatDividin = { link = 'Winseparator' }
+    hl.CocFloatSbar = { link = 'PmenuSbar' }
+    hl.CocFloatThumb = { link = 'PmenuThumb' }
+    hl.CocFloating = { link = 'NormalFloat' }
+    hl.CocFadeOut = { link = 'Comment' }
+    hl.CocPumVirtualText = { link = 'Comment' }
+
+    --- Coc{Warn, Info, Hint, Error}
+    --- CocTextReference
+    hl.CocHighlightRead = { bg = v.Background.emphasis }
+    hl.CocHighlightText = { bg = v.Background.emphasis }
+    hl.CocHighlightWrite = { bg = v.Background.emphasis }
+    hl.CocHoverRange = { bg = v.Background.emphasis }
+
+    hl.CocHintFloat = { link = 'NormalFloat' }
+    hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
+    hl.CocInlayHintType = { fg = v.Foreground.muted, bg = v.Shade.default }
+    hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
+    --- CocSem
+
+    hl.CocSemDeclarationFunction = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.CocSemDeclarationMethod = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.CocSemRegexp = { fg = v.Colors.Hint, bg = v.Shade.default }
+    hl.CocSemDeclarationType = { fg = v.Colors.Caution, bg = v.Shade.default }
+    hl.CocSemDecorator = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
+    hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, bg = v.Shade.default, italic = true }
+    hl.CocSemDefaultLibraryType = { fg = v.Colors.Note, italic = true, bg = v.Shade.default }
+    hl.CocSemDefaultLibraryVariable = { fg = v.Colors.Error, bg = v.Shade.default, italic = true }
+    hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger, bg = v.Shade.default }
+    hl.CocSemEnumMember = { fg = v.Colors.Accent, bg = v.Shade.default }
+    hl.CocSemMacro = { fg = v.Colors.Note, bg = v.Shade.default }
+    hl.CocSemProperty = { fg = v.Colors.Accent, bg = v.Shade.default }
+    hl.CocSemStruct = { fg = v.Colors.Caution, bg = v.Shade.default }
+    hl.CocSemVariable = { fg = v.Foreground.default, bg = v.Shade.default }
 
     return hl
 end
