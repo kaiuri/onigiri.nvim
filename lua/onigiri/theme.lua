@@ -1,10 +1,9 @@
 ---Takes in a FunctionalVariables dictionary, outputs a colorscheme table.
+local presets = require('onigiri.presets.mariana')
 ---@param v FunctionalVariables
 ---@return { [string]: HighlightDefMap }
-local function Theme(
-    v
-)
-    if not v then return {} end
+local function Theme(v)
+    v = v or presets
 
     ---@type {[string]: HighlightDefMap }
     local hl = {}
@@ -18,10 +17,10 @@ local function Theme(
     hl.PmenuSbar = { bg = hl.Pmenu.bg, fg = hl.PmenuSel.bg }
     hl.PmenuThumb = { bg = hl.PmenuSel.bg }
     hl.NonText = { fg = v.Foreground.surface }
-    hl.ColorColumn = { bg = v.Background.default }
     hl.Conceal = { fg = v.Foreground.muted }
     hl.CursorLine = { bg = v.Background.muted }
-    hl.CursorColumn = { bg = v.Background.muted }
+    hl.CursorColumn = { link = 'CursorLine' }
+    hl.ColorColumn = { link = 'CursorColumn' }
     hl.LineNr = { bg = v.Background.muted, fg = v.Foreground.emphasis }
     hl.LineNrAbove = { fg = v.Foreground.muted }
     hl.LineNrBelow = { fg = v.Foreground.muted }
@@ -295,9 +294,9 @@ local function Theme(
     hl.packerString = { fg = v.Colors.Info }
     hl.packerStatusSuccess = { fg = v.Colors.Info }
 
-    hl.LspReferenceText  = { bg = v.Background.muted }
-    hl.LspReferenceRead  = { bg = v.Background.muted }
-    hl.LspReferenceWrite = { bg = v.Background.muted }
+    hl.LspReferenceText  = { bg = v.Background.emphasis }
+    hl.LspReferenceRead  = { bg = v.Background.emphasis }
+    hl.LspReferenceWrite = { bg = v.Background.emphasis }
 
     hl.TelescopeBorder = { fg = v.Foreground.surface }
     hl.TelescopeTitle = { fg = v.Foreground.default, bold = true }
