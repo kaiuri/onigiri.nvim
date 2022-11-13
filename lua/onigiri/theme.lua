@@ -205,6 +205,7 @@ local function Theme(
     hl.gitCommitSelectedFile = { italic = true }
     hl.gitCommitSummary = { bold = true }
     hl.gitCommitTrailerToken = { fg = v.Colors.Trace, italic = true }
+    hl.gitconfigVariable = { link = '@field' }
     hl.healthHelp = { fg = v.Colors.Important, bg = v.Shade.default }
     hl.healthSuccess = { fg = v.Colors.Info, bg = v.Shade.default }
 
@@ -294,9 +295,9 @@ local function Theme(
     hl.packerString = { fg = v.Colors.Info }
     hl.packerStatusSuccess = { fg = v.Colors.Info }
 
-    hl.LspReferenceText = { bg = v.Background.emphasis }
-    hl.LspReferenceRead = { bg = v.Background.emphasis }
-    hl.LspReferenceWrite = { bg = v.Background.emphasis }
+    hl.LspReferenceText  = { bg = v.Background.muted }
+    hl.LspReferenceRead  = { bg = v.Background.muted }
+    hl.LspReferenceWrite = { bg = v.Background.muted }
 
     hl.TelescopeBorder = { fg = v.Foreground.surface }
     hl.TelescopeTitle = { fg = v.Foreground.default, bold = true }
