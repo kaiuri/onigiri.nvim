@@ -341,10 +341,11 @@ local function Theme(v)
     hl.TroubleIndent   = { bg = v.Background.default }
     hl.TroubleLocation = { bold = true }
 
-    hl.NvimTreeNormal           = { fg = v.Foreground.default, bg = v.Background.emphasis }
-    hl.NvimTreeRootFolder       = { fg = v.Foreground.default, bg = v.Background.emphasis }
-    hl.NvimTreeIndentMarker     = { fg = v.Foreground.default, bg = v.Background.emphasis }
+    hl.NvimTreeNormal           = { fg = v.Foreground.default, bg = v.Shade.default }
+    hl.NvimTreeRootFolder       = { fg = v.Foreground.default, bg = v.Shade.default }
+    hl.NvimTreeIndentMarker     = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl.NvimTreeOpenedFolderName = { underdotted = true }
+    hl.NvimTreeOpenedFile       = { bg = v.Background.muted }
     hl.NvimTreeFolderName       = { fg = v.Foreground.default, bg = v.Shade.default }
     hl.NvimTreeEmptyFolderName  = { link = 'Comment' }
     hl.NvimTreeFolderIcon       = { fg = v.Foreground.muted }
