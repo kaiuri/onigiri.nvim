@@ -1,9 +1,8 @@
+local vim_g = vim.g
+---@type fun(namespace: number, group: string, hl_map: HighlightDefMap): nil
 local nvim_set_hl = vim.api.nvim_set_hl
--- local chroma = require('onigiri.chroma')
-local g = vim.g
-
 local Theme = require 'onigiri.theme'.Theme
-local treesitter_extended = require 'onigiri.ts-extended'
+local ts_extended = require 'onigiri.ts-extended'
 
 local presets = {
     mariana = require 'onigiri.presets.mariana',
@@ -11,24 +10,31 @@ local presets = {
 
 ---@return FunctionalVariables
 local function config()
-    vim.g.onigiri = (vim.g.onigiri ~= nil
-        and vim.g.onigiri.theme ~= {})
-        and vim.g.onigiri
-        or { theme = presets.mariana }
+    if not vim.g.onigiri then
+        vim.g.onigiri = {
+            theme = presets.mariana
+        }
+    end
+
     return vim.g.onigiri.theme
 end
 
 local load = function()
-    if g.colors_name then vim.cmd('hi clear') end
+
+    if vim_g.colors_name then vim.cmd('hi clear') end
+
     vim.cmd('highlight clear')
     vim.cmd('set t_Co=256')
-    g.colors_name = 'onigiri'
+
+    vim_g.colors_name = 'onigiri'
 
     local theme = Theme(config())
 
-    for group, attrs in pairs(theme) do nvim_set_hl(0, group, attrs) end
+    for group, attrs in pairs(theme) do
+        nvim_set_hl(0, group, attrs)
+    end
 
-    treesitter_extended.load()
+    ts_extended.load()
 
 end
 
@@ -37,5 +43,4 @@ return {
     config  = config,
     colors  = config(),
     presets = presets,
-    -- chroma  = chroma,
 }
