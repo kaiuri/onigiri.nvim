@@ -1,6 +1,4 @@
 local vim_g = vim.g
----@type fun(namespace: number, group: string, hl_map: HighlightDefMap): nil
-local nvim_set_hl = vim.api.nvim_set_hl
 local Theme = require 'onigiri.theme'.Theme
 local ts_extended = require 'onigiri.ts-extended'
 
@@ -30,6 +28,8 @@ local load = function()
 
     local theme = Theme(config())
 
+    ---@type fun(ns: number, group: string, hl_map: HighlightDefMap): nil
+    local nvim_set_hl = vim.api.nvim_set_hl
     for group, attrs in pairs(theme) do
         nvim_set_hl(0, group, attrs)
     end
