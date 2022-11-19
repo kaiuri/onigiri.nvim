@@ -21,6 +21,10 @@ Set the provided variables and get a well-balanced colorscheme.
 
 <img src="https://user-images.githubusercontent.com/19148108/200833531-46513bd3-e8be-4723-8680-e457f2d5161e.png" width="60%">
 
+#### ImHex
+
+<img src="https://user-images.githubusercontent.com/19148108/202846559-97686fac-5c5a-42aa-9483-a618590dd95c.png" width="60%">
+
 ### I hate boiler plate 🍳
 
 `onigiri` abstracts away all the boiler plate! Set some variables and be done with it.
