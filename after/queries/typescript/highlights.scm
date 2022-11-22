@@ -1,4 +1,5 @@
 ; extends
+
 ["'" "\"" "`"] @string.delimiter
 
 ["export" "import" "from"] @include
@@ -25,3 +26,4 @@
 
 ("?.") @keyword
 
+; ["async" "const" "await" "let" ] @storageclass

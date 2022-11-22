@@ -106,7 +106,7 @@ local function Theme(v)
     hl.Keyword        = { fg = v.Colors.Trace, italic = true }
     hl.Label          = { fg = v.Colors.Trace }
     hl.Macro          = { fg = v.Colors.Hint }
-    hl.Number         = { fg = v.Colors.Important }
+    hl.Number         = { fg = v.Colors.Caution }
     hl.Operator       = { fg = v.Colors.Danger }
     hl.PreCondit      = { fg = v.Colors.Error }
     hl.PreProc        = { fg = v.Colors.Hint }
@@ -146,6 +146,7 @@ local function Theme(v)
     hl['@field.yaml'] = { fg = v.Colors.Hint }
 
     hl['@function']                  = { link = 'Function' }
+    hl['@function.css']              = { fg = v.Colors.Note }
     hl['@function.builtin']          = { fg = v.Colors.Note, italic = true }
     hl['@function.call']             = { fg = v.Colors.Note }
     hl['@function.macro']            = { fg = v.Colors.Note }
@@ -155,9 +156,12 @@ local function Theme(v)
     hl['@interface'] = { fg = v.Colors.Caution }
 
     hl['@conditional']      = { fg = v.Colors.Trace }
-    hl['@include']          = { fg = v.Colors.Trace }
     hl['@keyword']          = { fg = v.Colors.Error }
-    hl['@keyword.css']      = { fg = v.Colors.Trace, italic = true }
+
+
+    hl['@keyword.jsdoc']    = { fg = v.Colors.Error }
+    hl['@keyword.css']      = { fg = v.Colors.Trace }
+    hl['@include']          = { fg = v.Colors.Trace }
     hl['@keyword.function'] = { fg = v.Colors.Trace, italic = true }
     hl['@keyword.operator'] = { fg = v.Colors.Danger }
     hl['@keyword.return']   = { fg = v.Colors.Trace }
@@ -216,14 +220,15 @@ local function Theme(v)
     hl['@text.underline'] = { underline = true }
     hl['@text.uri']       = { fg = v.Colors.Note, underdotted = true }
 
-    hl['@type']           = { fg = v.Colors.Caution }
+    hl['@type']           = { fg = v.Colors.Caution             }
     hl['@type.builtin']   = { fg = v.Colors.Note, italic = true }
-    hl['@type.qualifier'] = { fg = v.Colors.Error }
+    hl['@type.qualifier'] = { fg = v.Colors.Error               }
+    hl['@storageclass']   = { fg = v.Colors.Error               }
 
     hl['@variable']                    = { fg = v.Foreground.default }
-    hl['@variable.builtin']            = { fg = v.Colors.Error, italic = true }
-    hl['@variable.builtin.clojure']    = { fg = v.Foreground.emphasis }
-    hl['@variable.builtin.javascript'] = { fg = v.Colors.Warn, italic = true }
+    hl['@variable.builtin']            = { fg = v.Foreground.default, italic = true }
+    hl['@variable.builtin.clojure']    = { fg = v.Foreground.default, italic = true }
+    hl['@variable.builtin.javascript'] = { fg = v.Foreground.default, italic = true }
 
 
     hl.gitCommitSelectedFile = { italic = true }
@@ -273,12 +278,12 @@ local function Theme(v)
 
     --- rainbow parenthesis
     hl.rainbowcol1 = { fg = v.Foreground.default }
-    hl.rainbowcol2 = { fg = v.Colors.Trace }
-    hl.rainbowcol3 = { fg = v.Colors.Info }
-    hl.rainbowcol4 = { fg = v.Colors.Error }
-    hl.rainbowcol5 = { fg = v.Colors.Hint }
-    hl.rainbowcol6 = { fg = v.Colors.Important }
-    hl.rainbowcol7 = { fg = v.Colors.Warn }
+    hl.rainbowcol2 = { fg = v.Colors.Trace       }
+    hl.rainbowcol3 = { fg = v.Colors.Info        }
+    hl.rainbowcol4 = { fg = v.Colors.Error       }
+    hl.rainbowcol5 = { fg = v.Colors.Hint        }
+    hl.rainbowcol6 = { fg = v.Colors.Important   }
+    hl.rainbowcol7 = { fg = v.Colors.Warn        }
 
     hl.IndentBlanklineContextChar = { fg = v.Foreground.muted, bg = 'NONE' }
     hl.IndentBlanklineContextStart = { sp = v.Foreground.muted, underdotted = true }
@@ -460,9 +465,9 @@ local function Theme(v)
     hl.CocFadeOut        = { link = 'Comment' }
     hl.CocPumVirtualText = { link = 'Comment' }
 
-    hl.CocHighlightRead  = { bg = v.Background.emphasis }
-    hl.CocHighlightText  = { bg = v.Background.emphasis }
-    hl.CocHighlightWrite = { bg = v.Background.emphasis }
+    hl.CocHighlightRead  = { bg = v.Background.muted }
+    hl.CocHighlightText  = { bg = v.Background.muted }
+    hl.CocHighlightWrite = { bg = v.Background.muted }
 
     hl.CocHintFloat          = { link = 'NormalFloat' }
     hl.CocInlayHint          = { fg = v.Foreground.muted, bg = v.Shade.default }
@@ -470,22 +475,33 @@ local function Theme(v)
     hl.CocInlayHintType      = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
 
-    hl.CocSemDeclarationFunction    = { fg = v.Colors.Hint }
-    hl.CocSemDeclarationMethod      = { fg = v.Colors.Hint }
-    hl.CocSemDefaultLibraryMethod   = { fg = v.Colors.Hint, italic = true }
-    hl.CocSemRegexp                 = { fg = v.Colors.Hint }
-    hl.CocSemDeclarationType        = { fg = v.Colors.Caution }
-    hl.CocSemDecorator              = { fg = v.Colors.Note, italic = true }
-    hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
-    hl.CocSemDefaultLibraryType     = { fg = v.Colors.Note, italic = true }
-    hl.CocSemDefaultLibraryVariable = { fg = v.Colors.Caution }
-    hl.CocSemDocumentationKeyword   = { fg = v.Colors.Danger }
-    hl.CocSemEnumMember             = { fg = v.Colors.Accent }
-    hl.CocSemMacro                  = { fg = v.Colors.Note }
-    hl.CocSemProperty               = { fg = v.Colors.Accent }
-    hl.CocSemStruct                 = { fg = v.Colors.Caution }
-    hl.CocSemVariable               = { fg = v.Foreground.default }
-    hl.CocSemNamespace              = { fg = v.Colors.Caution }
+    hl.CocSemType          = { link = '@type'                    }
+    hl.CocSemDecorator     = { fg = v.Colors.Note, italic = true }
+    hl.CocSemEnumMember    = { fg = v.Colors.Accent              }
+    hl.CocSemMacro         = { fg = v.Colors.Note                }
+    hl.CocSemMethod        = { fg = v.Colors.Hint                }
+    hl.CocSemNamespace     = { link = '@namespace'               }
+    hl.CocSemProperty      = { link = '@field'                   }
+    hl.CocSemRegexp        = { link = '@string.regex'            }
+    hl.CocSemModifier      = { link = '@storageclass' }
+    hl.CocSemStruct        = { fg = v.Colors.Caution             }
+    hl.CocSemTypeParameter = { fg = v.Colors.Caution             }
+    hl.CocSemVariable      = { fg = v.Foreground.default         }
+    hl.CocSemFunction      = { fg = v.Colors.Note                }
+
+    hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
+    hl.CocSemDeclarationMethod   = { fg = v.Colors.Hint }
+
+    hl.CocSemReadonlyVariable = { fg = v.Foreground.default }
+
+    hl.CocSemDefaultLibraryFunction      = { fg = v.Colors.Note, italic = true }
+    hl.CocSemDefaultLibraryMethod        = { fg = v.Colors.Hint, italic = true }
+    hl.CocSemDefaultLibraryNamespace     = { fg = v.Colors.Caution, italic = true }
+    hl.CocSemDefaultLibraryType          = { link = '@type.builtin' }
+    hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
+    hl.CocSemDefaultLibraryVariable      = { fg = v.Foreground.default, italic = true }
+
+    hl.CocSemDocumentationKeyword        = { fg = v.Colors.Danger }
 
     hl['@string.delimiter'] = { fg = v.Colors.Note } -- extra highlight
     return hl

@@ -25,8 +25,9 @@ local load = function()
     vim.cmd('set t_Co=256')
 
     vim_g.colors_name = 'onigiri'
+    local cfg = config()
 
-    local theme = Theme(config())
+    local theme = Theme(cfg)
 
     ---@type fun(ns: number, group: string, hl_map: HighlightDefMap): nil
     local nvim_set_hl = vim.api.nvim_set_hl
@@ -34,7 +35,7 @@ local load = function()
         nvim_set_hl(0, group, attrs)
     end
 
-    ts_extended.load()
+    ts_extended.load(cfg)
 
 end
 
