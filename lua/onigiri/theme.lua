@@ -475,19 +475,40 @@ local function Theme(v)
     hl.CocInlayHintType      = { fg = v.Foreground.muted, bg = v.Shade.default }
     hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
 
-    hl.CocSemType          = { link = '@type'                    }
+    -- coc-lists
+    hl.CocListFgGreen    = { fg = v.Colors.Info }
+    hl.CocListFgRed      = { fg = v.Colors.Error }
+    hl.CocListFgBlue     = { fg = v.Colors.Note }
+    hl.CocListFgCyan     = { fg = v.Colors.Hint }
+    hl.CocListFgGrey     = { fg = v.Foreground.muted }
+    hl.CocListFgWhite    = { fg = v.Foreground.emphasis }
+    -- hl.CocListFgBlack = { fg = v.Shade.emphasis }
+    hl.CocListFgYellow   = { fg = v.Colors.Caution }
+    hl.CocListFgMagenta  = { fg = v.Colors.Trace }
+
+    hl.CocListBgGreen    = { bg = v.Colors.Info }
+    hl.CocListBgRed      = { bg = v.Colors.Error }
+    hl.CocListBgBlue     = { bg = v.Colors.Note }
+    hl.CocListBgCyan     = { bg = v.Colors.Hint }
+    hl.CocListBgGrey     = { bg = v.Foreground.muted }
+    hl.CocListBgWhite    = { bg = v.Foreground.emphasis }
+    hl.CocListBgYellow   = { bg = v.Colors.Caution }
+    hl.CocListBgMagenta  = { bg = v.Colors.Trace }
+    -- hl.CocListBgBlack = { bg = v.Shade.emphasis }
+
+    hl.CocSemType          = { link = '@type' }
     hl.CocSemDecorator     = { fg = v.Colors.Note, italic = true }
-    hl.CocSemEnumMember    = { fg = v.Colors.Accent              }
-    hl.CocSemMacro         = { fg = v.Colors.Note                }
-    hl.CocSemMethod        = { fg = v.Colors.Hint                }
-    hl.CocSemNamespace     = { link = '@namespace'               }
-    hl.CocSemProperty      = { link = '@field'                   }
-    hl.CocSemRegexp        = { link = '@string.regex'            }
+    hl.CocSemEnumMember    = { fg = v.Colors.Accent }
+    hl.CocSemMacro         = { fg = v.Colors.Note   }
+    hl.CocSemMethod        = { fg = v.Colors.Hint   }
+    hl.CocSemNamespace     = { link = '@namespace'    }
+    hl.CocSemProperty      = { link = '@field'        }
+    hl.CocSemRegexp        = { link = '@string.regex' }
     hl.CocSemModifier      = { link = '@storageclass' }
-    hl.CocSemStruct        = { fg = v.Colors.Caution             }
-    hl.CocSemTypeParameter = { fg = v.Colors.Caution             }
-    hl.CocSemVariable      = { fg = v.Foreground.default         }
-    hl.CocSemFunction      = { fg = v.Colors.Note                }
+    hl.CocSemStruct        = { fg = v.Colors.Caution     }
+    hl.CocSemTypeParameter = { fg = v.Colors.Caution     }
+    hl.CocSemVariable      = { fg = v.Foreground.default }
+    hl.CocSemFunction      = { fg = v.Colors.Note        }
 
     hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
     hl.CocSemDeclarationMethod   = { fg = v.Colors.Hint }
