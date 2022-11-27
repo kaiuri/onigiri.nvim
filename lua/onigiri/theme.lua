@@ -67,11 +67,14 @@ local function Theme(v)
     hl.TabLineFill = { fg = v.Foreground.default, bg = v.Background.muted }
     hl.TabLineSel  = { fg = v.Foreground.default, bg = v.Background.default }
 
-    hl.WarningMsg   = { link = 'ErrorMsg' }
-    hl.WildMenu     = { link = 'Pmenu' }
+    hl.WarningMsg = { link = 'ErrorMsg' }
+
+    hl.WildMenu   = { link = 'Pmenu' }
+
     hl.Winseparator = { fg = v.Foreground.surface }
     hl.VertSplit    = { link = 'Winseparator' }
-    hl.MatchParen   = { bold = true }
+
+    hl.MatchParen = { bg = v.Shade.default, bold = true }
 
     hl.DiagnosticError            = { fg = v.Colors.Error, bg = 'NONE' }
     hl.DiagnosticSignError        = { fg = hl.DiagnosticError.fg, bold = true, bg = 'NONE' }
