@@ -31,9 +31,15 @@ local function Theme(v)
     hl.LineNrBelow  = { fg = v.Foreground.muted }
     hl.CursorLineNr = { link = 'LineNr' }
 
-    hl.DiffAdd    = { sp = v.Colors.Info, underline = true }
-    hl.DiffChange = { sp = v.Colors.Error, underline = true }
-    hl.DiffDelete = { fg = v.Foreground.muted }
+    -- hl.DiffAdd    = { sp = v.Colors.Info, underline = true }
+    hl.DiffAdd    = { fg = v.Colors.Info }
+
+    -- hl.DiffChange = { sp = v.Colors.Caution, underline = true }
+    hl.DiffChange = { fg = v.Colors.Caution }
+
+    -- hl.DiffDelete = { fg = v.Colors.Error }
+    hl.DiffDelete = { fg = v.Colors.Error }
+
     hl.DiffText   = { italic = true }
 
     hl.Directory   = { fg = v.Colors.Hint }
@@ -281,12 +287,12 @@ local function Theme(v)
 
     --- rainbow parenthesis
     hl.rainbowcol1 = { fg = v.Foreground.default }
-    hl.rainbowcol2 = { fg = v.Colors.Trace       }
-    hl.rainbowcol3 = { fg = v.Colors.Info        }
-    hl.rainbowcol4 = { fg = v.Colors.Error       }
-    hl.rainbowcol5 = { fg = v.Colors.Hint        }
-    hl.rainbowcol6 = { fg = v.Colors.Important   }
-    hl.rainbowcol7 = { fg = v.Colors.Warn        }
+    hl.rainbowcol2 = { fg = v.Colors.Trace }
+    hl.rainbowcol3 = { fg = v.Colors.Info }
+    hl.rainbowcol4 = { fg = v.Colors.Error }
+    hl.rainbowcol5 = { fg = v.Colors.Hint }
+    hl.rainbowcol6 = { fg = v.Colors.Important }
+    hl.rainbowcol7 = { fg = v.Colors.Warn }
 
     hl.IndentBlanklineContextChar = { fg = v.Foreground.muted, bg = 'NONE' }
     hl.IndentBlanklineContextStart = { sp = v.Foreground.muted, underdotted = true }
@@ -324,9 +330,9 @@ local function Theme(v)
     hl.Sneak      = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
     hl.SneakLabel = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
 
-    hl.GitSignsDelete = { fg = v.Colors.Error, bold = true }
-    hl.GitSignsChange = { fg = v.Colors.Important, bold = true }
-    hl.GitSignsAdd    = { fg = v.Colors.Info, bold = true }
+    hl.GitSignsDelete = { fg = v.Colors.Error }
+    hl.GitSignsChange = { fg = v.Colors.Caution }
+    hl.GitSignsAdd    = { fg = v.Colors.Info }
 
     hl.packerHash          = { fg = v.Colors.Error }
     hl.packerString        = { fg = v.Colors.Info }
@@ -479,16 +485,19 @@ local function Theme(v)
     hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
 
     -- coc-lists
+    hl.CocListLine       = { link = 'PmenuSel' }
+    hl.CocListPath       = { fg = v.Foreground.default }
+    hl.CocListMode       = { fg = v.Foreground.default }
+    hl.CocListsDesc      = { fg = v.Foreground.default }
+
     hl.CocListFgGreen    = { fg = v.Colors.Info }
     hl.CocListFgRed      = { fg = v.Colors.Error }
     hl.CocListFgBlue     = { fg = v.Colors.Note }
     hl.CocListFgCyan     = { fg = v.Colors.Hint }
     hl.CocListFgGrey     = { fg = v.Foreground.muted }
     hl.CocListFgWhite    = { fg = v.Foreground.emphasis }
-    -- hl.CocListFgBlack = { fg = v.Shade.emphasis }
     hl.CocListFgYellow   = { fg = v.Colors.Caution }
     hl.CocListFgMagenta  = { fg = v.Colors.Trace }
-
     hl.CocListBgGreen    = { bg = v.Colors.Info }
     hl.CocListBgRed      = { bg = v.Colors.Error }
     hl.CocListBgBlue     = { bg = v.Colors.Note }
@@ -527,7 +536,15 @@ local function Theme(v)
 
     hl.CocSemDocumentationKeyword        = { fg = v.Colors.Danger }
 
+    hl.CocSymbolEnum       = { fg = v.Colors.Caution }
+    hl.CocSymbolStruct     = { fg  = v.Colors.Caution }
+    hl.CocSymbolText       = { fg = v.Foreground.default }
+    hl.CocSymbolField      = { fg = v.Colors.Accent }
+    hl.CocSymbolProperty   = { fg = v.Colors.Accent }
+    hl.CocSymbolEnumMember = { fg = v.Colors.Accent }
+
     hl['@string.delimiter'] = { fg = v.Colors.Note } -- extra highlight
+
     return hl
 end
 
