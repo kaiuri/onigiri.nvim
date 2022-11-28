@@ -7,23 +7,23 @@ Set the provided variables and get a well-balanced colorscheme.
 
 #### Mariana
 
-<img src="https://user-images.githubusercontent.com/19148108/200832322-3f7b2888-711d-4f13-ba84-163eba7cd0c1.png" width="60%">
+<img src="https://user-images.githubusercontent.com/19148108/204261202-bb691e2e-5b77-4c8a-a1f6-e1811b7248b1.png" width="60%">
 
 #### Solarized Dark
 
-<img src="https://user-images.githubusercontent.com/19148108/200832525-27df0b78-e447-4d16-8aeb-60b267d76a65.png" width="60%">
+<img src="https://user-images.githubusercontent.com/19148108/204261315-6e1c2d32-a50a-4b9b-baed-b2c8886294cd.png" width="60%">
 
 #### Tokyo Night-ish
 
-<img src="https://user-images.githubusercontent.com/19148108/200832796-5d0a0778-cea1-4754-8a1d-fc8027101506.png" width="60%">
+<img src="https://user-images.githubusercontent.com/19148108/204261493-17b28b1e-8c17-47bc-8aba-e51a8bff9a68.png" width="60%">
 
 #### Gruvbox-ish
 
-<img src="https://user-images.githubusercontent.com/19148108/200833531-46513bd3-e8be-4723-8680-e457f2d5161e.png" width="60%">
+<img src="https://user-images.githubusercontent.com/19148108/204261607-be667f73-13e6-41ea-be58-bbc6469853fa.png" width="60%">
 
 #### ImHex
 
-<img src="https://user-images.githubusercontent.com/19148108/202846559-97686fac-5c5a-42aa-9483-a618590dd95c.png" width="60%">
+<img src="https://user-images.githubusercontent.com/19148108/204261729-9bf5d6b9-455a-4aaf-9329-06f2d25a1883.png" width="60%">
 
 ### I hate boiler plate 🍳
 
