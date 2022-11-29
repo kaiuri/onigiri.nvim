@@ -40,8 +40,8 @@ local load = function()
 end
 
 return {
-    load    = load,
-    config  = config,
-    colors  = config(),
+    load = load,
+    config = config,
+    colors = config(),
     presets = presets,
 }
