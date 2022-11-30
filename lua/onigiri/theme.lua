@@ -471,12 +471,12 @@ local function Theme(v)
     hl.CocFloatSbar = { link = 'PmenuSbar' }
     hl.CocFloatThumb = { link = 'PmenuThumb' }
     hl.CocFloating = { link = 'NormalFloat' }
-    hl.CocFadeOut = { link = 'Comment' }
+    -- hl.CocFadeOut = { link = 'Comment' }
     hl.CocPumVirtualText = { link = 'Comment' }
 
-    hl.CocHighlightRead = { bg = v.Background.muted }
-    hl.CocHighlightText = { bg = v.Background.muted }
-    hl.CocHighlightWrite = { bg = v.Background.muted }
+    hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = v.Shade.emphasis }
+    hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = v.Shade.emphasis }
+    hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Shade.emphasis }
 
     hl.CocHintFloat = { link = 'NormalFloat' }
     hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
