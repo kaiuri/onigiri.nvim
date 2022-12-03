@@ -533,6 +533,7 @@ local function Theme(v)
   hl.CocSemDefaultLibraryType = { link = '@type.builtin' }
   hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
   hl.CocSemDefaultLibraryVariable = { fg = v.Foreground.default, italic = true }
+  hl.CocSemCallableVariable = { fg = v.Colors.Note }
 
   hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger }
 
