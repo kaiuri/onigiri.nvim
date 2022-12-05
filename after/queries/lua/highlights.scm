@@ -7,5 +7,7 @@
 
 ["local"] @storageclass
 
+[":"] @operator
+
 (function_call
   name: (identifier) @function.call)
