@@ -142,10 +142,8 @@ local function Theme(v)
 
   hl['@comment'] = { fg = v.Foreground.muted }
 
-  hl['@constant'] = { link = 'Constant' }
-  hl['@constant.builtin'] = { fg = v.Colors.Error, italic = true }
-  hl['@constant.builtin.python'] = { fg = v.Colors.Note, italic = true }
-  hl['@constant.builtin.rust'] = { fg = v.Colors.Note, italic = true }
+  hl['@constant'] = { fg = v.Foreground.emphasis }
+  hl['@constant.builtin'] = { fg = v.Foreground.emphasis, italic = true }
   hl['@constant.macro'] = { fg = v.Colors.Trace, italic = true }
 
   hl['@constructor.typescript'] = { fg = v.Colors.Caution }
@@ -216,7 +214,7 @@ local function Theme(v)
 
   hl['@symbol'] = { fg = v.Colors.Hint }
 
-  hl['@tag'] = { link = 'Tag' }
+  hl['@tag'] = { fg = v.Colors.Error }
   hl['@tag.rust'] = { fg = v.Colors.Hint }
   hl['@tag.attribute'] = { fg = v.Colors.Trace }
   hl['@tag.delimiter'] = { fg = v.Colors.Hint }
