@@ -215,6 +215,7 @@ local function Theme(v)
   hl['@symbol'] = { fg = v.Colors.Hint }
 
   hl['@tag'] = { link = 'Tag' }
+  hl['@tag.rust'] = { fg = v.Colors.Hint }
   hl['@tag.attribute'] = { fg = v.Colors.Trace }
   hl['@tag.delimiter'] = { fg = v.Colors.Hint }
   hl['@tag.delimiter.markdown'] = { fg = v.Colors.Note }
@@ -233,6 +234,7 @@ local function Theme(v)
   hl['@type.builtin'] = { fg = v.Colors.Note, italic = true }
   hl['@type.qualifier'] = { fg = v.Colors.Error }
   hl['@storageclass'] = { fg = v.Colors.Error }
+  hl['@storageclass.lifetime'] = { fg = v.Colors.Hint }
 
   hl['@variable'] = { fg = v.Foreground.default }
   hl['@variable.builtin'] = { fg = v.Foreground.default, italic = true }
@@ -474,9 +476,9 @@ local function Theme(v)
   -- hl.CocFadeOut = { link = 'Comment' }
   hl.CocPumVirtualText = { link = 'Comment' }
 
-  hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = v.Shade.emphasis }
-  hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = v.Shade.emphasis }
-  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Shade.emphasis }
+  hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
 
   hl.CocHintFloat = { link = 'NormalFloat' }
   hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
@@ -508,6 +510,9 @@ local function Theme(v)
   hl.CocListBgMagenta = { bg = v.Colors.Trace }
   -- hl.CocListBgBlack = { bg = v.Shade.emphasis }
 
+  --- coc-semantic-tokens
+  --- token-types
+
   hl.CocSemType = { link = '@type' }
   hl.CocSemDecorator = { fg = v.Colors.Note, italic = true }
   hl.CocSemEnumMember = { fg = v.Colors.Accent }
@@ -521,6 +526,13 @@ local function Theme(v)
   hl.CocSemTypeParameter = { fg = v.Colors.Caution }
   hl.CocSemVariable = { fg = v.Foreground.default }
   hl.CocSemFunction = { fg = v.Colors.Note }
+  hl.CocSemMacroBang = { fg = v.Colors.Danger }
+  hl.CocSemFormatSpecifier = { fg = v.Colors.Note }
+  hl.CocSemBuiltinAttribute = { fg = v.Colors.Trace }
+  hl.CocSemColon = { fg = v.Colors.Error }
+  hl.CocSemAngle = { fg = v.Colors.Danger }
+
+  --- token-modifiers
 
   hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
   hl.CocSemDeclarationMethod = { fg = v.Colors.Hint }
@@ -533,10 +545,15 @@ local function Theme(v)
   hl.CocSemDefaultLibraryType = { link = '@type.builtin' }
   hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
   hl.CocSemDefaultLibraryVariable = { fg = v.Foreground.default, italic = true }
+  hl.CocSemDefaultLibraryStruct = { fg = v.Colors.Note, italic = true }
+
   hl.CocSemCallableVariable = { fg = v.Colors.Note }
+  hl.CocSemStaticVariable = { fg = v.Foreground.emphasis }
+  hl.CocSemReferenceMethod = { fg = v.Colors.Note }
 
   hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger }
 
+  --- coc-symbols
   hl.CocSymbolEnum = { fg = v.Colors.Caution }
   hl.CocSymbolStruct = { fg = v.Colors.Caution }
   hl.CocSymbolText = { fg = v.Foreground.default }

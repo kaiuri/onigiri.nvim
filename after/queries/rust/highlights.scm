@@ -6,8 +6,6 @@
   ("|") @keyword.operator)
 
 ["pub"] @type.qualifier
-(mutable_specifier) @type.qualifier
-
 
 ([(type_arguments) (type_parameters)]  ["<" ">"] @punctuation.bracket)
 
