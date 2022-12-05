@@ -516,6 +516,7 @@ local function Theme(v)
   --- token-types
 
   hl.CocSemType = { fg = v.Colors.Caution }
+  hl.CocSemClass = { fg = v.Colors.Caution }
   hl.CocSemDecorator = { fg = v.Colors.Trace }
   hl.CocSemEnumMember = { fg = v.Colors.Accent }
   hl.CocSemMacro = { fg = v.Colors.Note }
@@ -551,7 +552,7 @@ local function Theme(v)
   -- hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
   -- hl.CocSemDefaultLibraryVariable = { fg = v.Foreground.default, italic = true }
 
-  hl.CocSemDocumentationKeyword = { fg = v.Colors.Error }
+  hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger }
   hl.CocSemDocumentationString = { link = 'CocSemString' }
   hl.CocSemDocumentationType = { link = 'CocSemType' }
   hl.CocSemDocumentationDecorator = { link = 'CocSemDecorator' }
