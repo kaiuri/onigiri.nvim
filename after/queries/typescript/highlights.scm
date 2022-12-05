@@ -7,6 +7,8 @@
 (template_substitution
     ["${" "}"] @punctuation.special)
 
+[ "await" "async" "const" "let" ] @storageclass
+
 "module" @function.macro
 
 (new_expression

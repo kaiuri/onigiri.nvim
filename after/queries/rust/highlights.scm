@@ -15,9 +15,6 @@
 
 (lifetime (identifier) @tag)
 
-; ((identifier) @type.builtin
-;  (#any-of? @type.builtin "Some" "None" "Ok" "Err"))
-
 (call_expression
    function:
     (field_expression
