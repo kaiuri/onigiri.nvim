@@ -35,8 +35,19 @@
  "!"
  "<<-"] @operator
 
+("${"
+ "#" @operator)
+
+(heredoc_start) @constant
+
 (file_descriptor) @number
 
+["declare" "local" "export" ] @storageclass
+
+; (case_item
+;  (word)
+;  [")"] @operator)
+;
 
 ; not sure about this one
 ; (case_statement
