@@ -525,7 +525,7 @@ local function Theme(v)
   hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
   hl.CocSemDeclarationMethod = { fg = v.Colors.Hint }
 
-  hl.CocSemReadonlyVariable = { fg = v.Foreground.default }
+  hl.CocSemReadonlyVariable = { fg = v.Foreground.emphasis }
 
   hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
   hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, italic = true }
