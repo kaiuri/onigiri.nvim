@@ -15,8 +15,8 @@
 
 (lifetime (identifier) @tag)
 
-((identifier) @type.builtin
- (#any-of? @type.builtin "Some" "None" "Ok" "Err"))
+; ((identifier) @type.builtin
+;  (#any-of? @type.builtin "Some" "None" "Ok" "Err"))
 
 (call_expression
    function:

@@ -145,8 +145,10 @@ local function Theme(v)
   hl['@constant'] = { link = 'Constant' }
   hl['@constant.builtin'] = { fg = v.Colors.Error, italic = true }
   hl['@constant.builtin.python'] = { fg = v.Colors.Note, italic = true }
+  hl['@constant.builtin.rust'] = { fg = v.Colors.Note, italic = true }
   hl['@constant.macro'] = { fg = v.Colors.Trace, italic = true }
 
+  hl['@constructor.typescript'] = { fg = v.Colors.Caution }
   hl['@constructor.lua'] = { fg = v.Foreground.emphasis }
   hl['@enum'] = { fg = v.Colors.Caution }
 
@@ -165,16 +167,16 @@ local function Theme(v)
   hl['@interface'] = { fg = v.Colors.Caution }
 
   hl['@conditional'] = { fg = v.Colors.Trace }
-  hl['@keyword'] = { fg = v.Colors.Error }
 
+  hl['@keyword'] = { fg = v.Colors.Trace, italic = true }
+  -- hl['@keyword.jsdoc'] = { fg = v.Colors.Trace }
+  -- hl['@keyword.css'] = { fg = v.Colors.Trace }
+  -- hl['@keyword.rust'] = { fg = v.Colors.Trace }
 
-  hl['@keyword.jsdoc'] = { fg = v.Colors.Error }
-  hl['@keyword.css'] = { fg = v.Colors.Trace }
   hl['@include'] = { fg = v.Colors.Trace }
   hl['@keyword.function'] = { fg = v.Colors.Trace, italic = true }
   hl['@keyword.operator'] = { fg = v.Colors.Danger }
   hl['@keyword.return'] = { fg = v.Colors.Trace }
-  hl['@keyword.rust'] = { fg = v.Colors.Trace }
 
   hl['@label'] = { fg = v.Colors.Hint }
   hl['@label.json'] = { fg = v.Colors.Hint }
@@ -513,45 +515,62 @@ local function Theme(v)
   --- coc-semantic-tokens
   --- token-types
 
-  hl.CocSemType = { link = '@type' }
-  hl.CocSemDecorator = { fg = v.Colors.Note, italic = true }
+  hl.CocSemType = { fg = v.Colors.Caution }
+  hl.CocSemDecorator = { fg = v.Colors.Trace }
   hl.CocSemEnumMember = { fg = v.Colors.Accent }
   hl.CocSemMacro = { fg = v.Colors.Note }
   hl.CocSemMethod = { fg = v.Colors.Hint }
-  hl.CocSemNamespace = { link = '@namespace' }
-  hl.CocSemProperty = { link = '@field' }
-  hl.CocSemRegexp = { link = '@string.regex' }
-  hl.CocSemModifier = { link = '@storageclass' }
+  hl.CocSemNamespace = { fg = v.Colors.Caution }
+  hl.CocSemProperty = { fg = v.Colors.Accent }
+  hl.CocSemRegexp = { fg = v.Colors.Hint }
+  hl.CocSemModifier = { fg = v.Colors.Error }
   hl.CocSemStruct = { fg = v.Colors.Caution }
   hl.CocSemTypeParameter = { fg = v.Colors.Caution }
   hl.CocSemVariable = { fg = v.Foreground.default }
   hl.CocSemFunction = { fg = v.Colors.Note }
   hl.CocSemMacroBang = { fg = v.Colors.Danger }
-  hl.CocSemFormatSpecifier = { fg = v.Colors.Note }
+  hl.CocSemFormatSpecifier = { fg = v.Colors.Hint }
   hl.CocSemBuiltinAttribute = { fg = v.Colors.Trace }
   hl.CocSemColon = { fg = v.Colors.Error }
   hl.CocSemAngle = { fg = v.Colors.Danger }
+  hl.CocSemCharacter = { fg = v.Colors.Info }
 
   --- token-modifiers
 
+  hl.CocSemCallableVariable = { fg = v.Colors.Note }
   hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
   hl.CocSemDeclarationMethod = { fg = v.Colors.Hint }
+  hl.CocSemDeclarationSelfKeyword = { fg = v.Colors.Error }
+
+  hl.CocSemDefaultLibrary = { italic = true }
+  -- hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
+  -- hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, italic = true }
+  -- hl.CocSemDefaultLibraryNamespace = { fg = v.Colors.Caution, italic = true }
+  -- hl.CocSemDefaultLibraryStruct = { fg = v.Colors.Note, italic = true }
+  -- hl.CocSemDefaultLibraryType = { link = '@type.builtin' }
+  -- hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
+  -- hl.CocSemDefaultLibraryVariable = { fg = v.Foreground.default, italic = true }
+
+  hl.CocSemDocumentationKeyword = { fg = v.Colors.Error }
+  hl.CocSemDocumentationString = { link = 'CocSemString' }
+  hl.CocSemDocumentationType = { link = 'CocSemType' }
+  hl.CocSemDocumentationDecorator = { link = 'CocSemDecorator' }
+  hl.CocSemDocumentationEnumMember = { link = 'CocSemEnumMember' }
+  hl.CocSemDocumentationMacro = { link = 'CocSemMacro' }
+  hl.CocSemDocumentationMethod = { link = 'CocSemMethod' }
+  hl.CocSemDocumentationNamespace = { link = 'CocSemNamespace' }
+  hl.CocSemDocumentationProperty = { link = 'CocSemProperty' }
+  hl.CocSemDocumentationRegexp = { link = 'CocSemRegexp' }
+  hl.CocSemDocumentationModifier = { link = 'CocSemModifier' }
+  hl.CocSemDocumentationStruct = { link = 'CocSemStruct' }
+  hl.CocSemDocumentationTypeParameter = { link = 'CocSemTypeParameter' }
+  hl.CocSemDocumentationVariable = { link = 'CocSemVariable' }
+  hl.CocSemDocumentationFunction = { link = 'CocSemFunction' }
+  hl.CocSemDocumentationMacroBang = { link = 'CocSemMacroBang' }
 
   hl.CocSemReadonlyVariable = { fg = v.Foreground.emphasis }
-
-  hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
-  hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, italic = true }
-  hl.CocSemDefaultLibraryNamespace = { fg = v.Colors.Caution, italic = true }
-  hl.CocSemDefaultLibraryType = { link = '@type.builtin' }
-  hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
-  hl.CocSemDefaultLibraryVariable = { fg = v.Foreground.default, italic = true }
-  hl.CocSemDefaultLibraryStruct = { fg = v.Colors.Note, italic = true }
-
-  hl.CocSemCallableVariable = { fg = v.Colors.Note }
-  hl.CocSemStaticVariable = { fg = v.Foreground.emphasis }
   hl.CocSemReferenceMethod = { fg = v.Colors.Note }
-
-  hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger }
+  hl.CocSemStaticVariable = { fg = v.Foreground.emphasis }
 
   --- coc-symbols
   hl.CocSymbolEnum = { fg = v.Colors.Caution }
