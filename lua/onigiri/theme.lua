@@ -317,7 +317,7 @@ local function Theme(v)
   hl.CmpItemKindField = { fg = v.Colors.Note }
   hl.CmpItemKindModule = { fg = v.Colors.Caution }
   hl.CmpItemKindKeyword = { fg = v.Colors.Trace }
-  hl.CmpItemKindEnumMember = { fg = v.Colors.Accent }
+  hl.CmpItemKindEnumMember = { fg = v.Foreground.emphasis }
   hl.CmpItemKindProperty = { fg = v.Colors.Note }
   hl.CmpItemKindOperator = { fg = v.Colors.Danger }
   hl.CmpItemKindReference = { fg = v.Foreground.default }
@@ -419,7 +419,7 @@ local function Theme(v)
   --- TODO: Finish associating
   hl.LspClass = { link = '@type' }
   hl.LspEnum = { link = '@type' }
-  hl.LspEnumMember = { link = '@field' }
+  hl.LspEnumMember = { fg = v.Foreground.emphasis }
   hl.LspFunction = { fg = v.Colors.Hint }
   hl.LspInterface = { link = '@type' }
   hl.LspKeyword = { fg = v.Colors.Danger }
@@ -518,7 +518,7 @@ local function Theme(v)
   hl.CocSemType = { fg = v.Colors.Caution }
   hl.CocSemClass = { fg = v.Colors.Caution }
   hl.CocSemDecorator = { fg = v.Colors.Trace }
-  hl.CocSemEnumMember = { fg = v.Colors.Accent }
+  hl.CocSemEnumMember = { fg = v.Foreground.emphasis }
   hl.CocSemMacro = { fg = v.Colors.Note }
   hl.CocSemMethod = { fg = v.Colors.Hint }
   hl.CocSemNamespace = { fg = v.Colors.Caution }
@@ -544,6 +544,8 @@ local function Theme(v)
   hl.CocSemDeclarationSelfKeyword = { fg = v.Colors.Error }
 
   hl.CocSemDefaultLibrary = { italic = true }
+  hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Note, italic = true }
+
   -- hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
   -- hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, italic = true }
   -- hl.CocSemDefaultLibraryNamespace = { fg = v.Colors.Caution, italic = true }
@@ -579,7 +581,7 @@ local function Theme(v)
   hl.CocSymbolText = { fg = v.Foreground.default }
   hl.CocSymbolField = { fg = v.Colors.Accent }
   hl.CocSymbolProperty = { fg = v.Colors.Accent }
-  hl.CocSymbolEnumMember = { fg = v.Colors.Accent }
+  hl.CocSymbolEnumMember = { fg = v.Foreground.emphasis }
 
   hl['@string.delimiter'] = { fg = v.Colors.Note } -- extra highlight
 
