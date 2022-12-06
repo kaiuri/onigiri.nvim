@@ -536,13 +536,18 @@ local function Theme(v)
 
   --- token-modifiers
 
+  hl.CocSemReadonlyVariable = { fg = v.Foreground.emphasis }
+  hl.CocSemStaticVariable = { fg = v.Foreground.emphasis }
   hl.CocSemCallableVariable = { fg = v.Colors.Note }
+
   hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
+
+  hl.CocSemReferenceMethod = { fg = v.Colors.Note }
   hl.CocSemDeclarationMethod = { fg = v.Colors.Hint }
+  hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Note, italic = true }
   hl.CocSemDeclarationSelfKeyword = { fg = v.Colors.Error }
 
   hl.CocSemDefaultLibrary = { italic = true }
-  hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Note, italic = true }
 
   -- hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
   -- hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, italic = true }
@@ -569,9 +574,6 @@ local function Theme(v)
   hl.CocSemDocumentationFunction = { link = 'CocSemFunction' }
   hl.CocSemDocumentationMacroBang = { link = 'CocSemMacroBang' }
 
-  hl.CocSemReadonlyVariable = { fg = v.Foreground.emphasis }
-  hl.CocSemReferenceMethod = { fg = v.Colors.Note }
-  hl.CocSemStaticVariable = { fg = v.Foreground.emphasis }
 
   --- coc-symbols
   hl.CocSymbolEnum = { fg = v.Colors.Caution }
