@@ -541,6 +541,7 @@ local function Theme(v)
   hl.CocSemCallableVariable = { fg = v.Colors.Note }
 
   hl.CocSemDeclarationFunction = { fg = v.Colors.Hint }
+  hl.CocSemDefinitionFunction = { fg = v.Colors.Hint }
 
   hl.CocSemReferenceMethod = { fg = v.Colors.Note }
   hl.CocSemDeclarationMethod = { fg = v.Colors.Hint }

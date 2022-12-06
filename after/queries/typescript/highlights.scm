@@ -7,7 +7,7 @@
 (template_substitution
     ["${" "}"] @punctuation.special)
 
-[ "type" "await" "async" "const" "let" ] @storageclass
+[ "type" "await" "async" "const" "let" "declare" "export" ] @storageclass
 
 "module" @function.macro
 
