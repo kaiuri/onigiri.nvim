@@ -1,11 +1,8 @@
+-- TODO: Add colored printing
 -- Imports
-local concat = table.concat
-local insert = table.insert
-
 -- Neovim imports
 local contains = vim.tbl_contains
 local keys = vim.tbl_keys
-local map = vim.tbl_map
 ---@type fun(chunks: {text: string, hl_group: string}[], history?: boolean, opts: nil[])
 local nvim_echo = vim.api.nvim_echo
 
@@ -54,7 +51,7 @@ end
 ---@return FGroup<`name`>
 local function FVar(name)
   local group = DEFAULT_THEME[name]
-  local self = setmetatable({}, {
+  local self  = setmetatable({}, {
     __index = group,
     __newindex = function(_, k, v)
       if not valid_hex(v) then
@@ -67,7 +64,6 @@ local function FVar(name)
       group[k] = v
     end,
   })
-  vim.tbl_extend('force', self, group)
 
   return self
 end
@@ -89,16 +85,15 @@ function Theme.new()
     Shade = FVar("Shade"),
     Colors = FVar("Colors"),
   }
-  local self = setmetatable({}, {
-    __index = theme,
-  })
-  vim.tbl_extend('force', self, theme)
+  local self = setmetatable({}, { __index = theme })
+
 
   return self
 end
 
 local theme = Theme.new()
-vim.pretty_print(theme.Foreground.default)
+vim.pretty_print(theme)
+
 theme.Foreground.default = '#000'
 
 vim.pretty_print(theme.Foreground.default)
