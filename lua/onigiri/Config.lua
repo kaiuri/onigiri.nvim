@@ -8,13 +8,13 @@ local nvim_echo = vim.api.nvim_echo
 
 ---@enum DEFAULT_THEME
 local DEFAULT_THEME = {
-  ---@enum Background
+  ---@class Background
   Background = {
     default  = "#303841",
     emphasis = "#2e353e",
     muted    = "#3b454e",
   },
-  ---@enum Colors
+  ---@class Colors
   Colors = {
     Accent    = "#95b2d6",
     Caution   = "#f9ae58",
@@ -27,14 +27,14 @@ local DEFAULT_THEME = {
     Trace     = "#cc8ec6",
     Warn      = "#ee932b",
   },
-  ---@enum Foreground
+  ---@class Foreground
   Foreground = {
     default  = "#d8dee9",
     emphasis = "#f7f7f7",
     muted    = "#a6acb8",
     surface  = "#46525c",
   },
-  ---@enum Shade
+  ---@class Shade
   Shade = {
     default  = "#2f373f",
     emphasis = "#2e363e",
