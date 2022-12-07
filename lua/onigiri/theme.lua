@@ -132,7 +132,7 @@ local function Theme(v)
   hl.Title = { fg = v.Foreground.default, bold = true }
   hl.Todo = { fg = v.Colors.Note, bold = true }
   hl.Type = { fg = v.Colors.Caution }
-  hl.Typedef = { fg = v.Colors.Error }
+  hl.Typedef = { fg = v.Colors.Caution }
   hl.Underlined = { underdotted = true }
   hl.Whitespace = { fg = v.Foreground.surface }
 
@@ -233,6 +233,7 @@ local function Theme(v)
   hl['@type'] = { fg = v.Colors.Caution }
   hl['@type.builtin'] = { fg = v.Colors.Note, italic = true }
   hl['@type.qualifier'] = { fg = v.Colors.Error }
+  hl['@type.definition'] = { fg = v.Colors.Caution }
   hl['@storageclass'] = { fg = v.Colors.Error }
   hl['@storageclass.lifetime'] = { fg = v.Colors.Hint }
 
