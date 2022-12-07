@@ -534,6 +534,7 @@ local function Theme(v)
   hl.CocSemColon = { fg = v.Colors.Error }
   hl.CocSemAngle = { fg = v.Colors.Danger }
   hl.CocSemCharacter = { fg = v.Colors.Info }
+  hl.CocSemKeyword = { italic = true } -- BUG: Conflicts with Tree-sitter
 
   --- token-modifiers
 
