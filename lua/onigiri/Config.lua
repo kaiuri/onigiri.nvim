@@ -53,20 +53,21 @@ end
 ---@param name "Foreground"|"Background"|"Shade"|"Colors"
 ---@return FGroup<`name`>
 local function FVar(name)
+  local group = DEFAULT_THEME[name]
   local self = setmetatable({}, {
-    __index = DEFAULT_THEME[name],
+    __index = group,
     __newindex = function(_, k, v)
       if not valid_hex(v) then
         error("Invalid hex color: " .. v)
       end
-      if not contains(keys(DEFAULT_THEME[name]), k) then
+      if not contains(keys(group), k) then
         error("Invalid color entry: " .. k)
       end
 
-      DEFAULT_THEME[name][k] = v
+      group[k] = v
     end,
   })
-  vim.tbl_extend('force', self, DEFAULT_THEME[name])
+  vim.tbl_extend('force', self, group)
 
   return self
 end
@@ -82,13 +83,16 @@ end
 local Theme = {}
 
 function Theme.new()
+  local theme = {
+    Foreground = FVar("Foreground"),
+    Background = FVar("Background"),
+    Shade = FVar("Shade"),
+    Colors = FVar("Colors"),
+  }
   local self = setmetatable({}, {
-    __index = Theme,
+    __index = theme,
   })
-  self.Foreground = FVar("Foreground")
-  self.Background = FVar("Background")
-  self.Shade = FVar("Shade")
-  self.Colors = FVar("Colors")
+  vim.tbl_extend('force', self, theme)
 
   return self
 end
@@ -98,3 +102,4 @@ vim.pretty_print(theme.Foreground.default)
 theme.Foreground.default = '#000'
 
 vim.pretty_print(theme.Foreground.default)
+vim.pretty_print(theme)
