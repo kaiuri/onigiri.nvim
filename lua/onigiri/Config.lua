@@ -1,12 +1,17 @@
 -- TODO: Add colored printing
 -- Imports
+local concat = table.concat
+local insert = table.insert
 -- Neovim imports
 local contains = vim.tbl_contains
 local keys = vim.tbl_keys
----@type fun(chunks: {text: string, hl_group: string}[], history?: boolean, opts: nil[])
-local nvim_echo = vim.api.nvim_echo
 
----@enum DEFAULT_THEME
+local function valid_hex(str)
+  if not str then return false end
+  return #str >= 4 and #str <= 7 and str:match("^#%x+$")
+end
+
+---@class DefaultTheme
 local DEFAULT_THEME = {
   ---@class Background
   Background = {
@@ -41,56 +46,85 @@ local DEFAULT_THEME = {
   },
 }
 
+
 ---@class Theme
 ---@field Foreground Foreground
 ---@field Background Background
 ---@field Shade      Shade
 ---@field Colors     Colors
----@field new        fun(theme?: Theme): Theme
 
-local function valid_hex(str)
-  if not str then return false end
-  return #str >= 4 and #str <= 7 and str:match("^#%x+$")
-end
+---@generic FVar
+---@param name `FVar`
+---@return FVar
+local function FVarBuilder(name)
+  local __index = vim.tbl_extend(
+    'force',
+    DEFAULT_THEME[name],
+    vim.g.onigiri['theme'][name])
 
----@generic T
----@param name `T`
----@return T
-local function FVar(name)
-  local group = DEFAULT_THEME[name]
-  local self  = setmetatable({}, {
-    __index = group,
+  local __call = function(_, fcolor)
+    assert(contains(keys(__index), fcolor), ("Invalid key entry: '%s'"):format(fcolor))
+    return __index[fcolor]
+  end
+  local FVar = setmetatable({}, {
+    __index = __index,
     __newindex = function(_, k, v)
       assert(valid_hex(v), ("Invalid hex color: '%s'"):format(v))
-      assert(contains(keys(group), k), ("Invalid key entry: '%s'"):format(k))
-      group[k] = v
+      assert(contains(keys(__index), k), ("Invalid key entry: '%s'"):format(k))
+      __index[k] = v
     end,
+    __call = __call,
+    __tostring = function()
+      local ret = {}
+      for k, v in pairs(__index) do
+        local entry = concat({ name, ".", k, " = ", v }, "")
+        insert(ret, entry)
+      end
+      return concat(ret, "\n")
+    end
+  })
+  return FVar
+end
+
+-- ---@param self Theme
+-- ---@param group_name string
+-- ---@param color string
+-- ---@param options HighlightingOptions
+-- function Theme:getHighlight(group_name, color, options)
+--   local highlight = {}
+--   for _, option in ipairs(options) do
+--     highlight[option] = self[name][option]
+--   end
+--   return highlight
+-- end
+
+---@return Theme
+local function ThemeBuilder()
+  local __index = {
+    Foreground = FVarBuilder("Foreground"),
+    Background = FVarBuilder("Background"),
+    Shade = FVarBuilder("Shade"),
+    Colors = FVarBuilder("Colors"),
+  }
+  local Theme = setmetatable({}, {
+    __index = __index,
+    __call = function(_, group_name, fcolor)
+      return __index[group_name](fcolor)
+    end,
+    __tostring = function()
+      local ret = {}
+      for _, v in pairs(__index) do
+        insert(ret, tostring(v))
+      end
+      return concat(ret, "\n")
+    end
   })
 
-  return self
+  return Theme
 end
 
----@type Theme
-local Theme = {}
+local theme = ThemeBuilder()
+print(theme)
+-- print(theme.Foreground)
 
-function Theme.new()
-  local theme = {
-    Foreground = FVar("Foreground"),
-    Background = FVar("Background"),
-    Shade = FVar("Shade"),
-    Colors = FVar("Colors"),
-  }
-  local self = setmetatable({}, { __index = theme })
-
-
-  return self
-end
-
----@type Theme
-local theme = Theme.new()
-vim.pretty_print(theme)
-
-theme.Foreground.default = 'jflajf'
-
-vim.pretty_print(theme.Foreground.default)
-vim.pretty_print(theme)
+return ThemeBuilder()
