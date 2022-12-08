@@ -1,4 +1,3 @@
--- TODO: Add colored printing
 -- Imports
 local concat = table.concat
 local insert = table.insert
@@ -6,10 +5,14 @@ local insert = table.insert
 local contains = vim.tbl_contains
 local keys = vim.tbl_keys
 
+-- Utilities
+
 local function valid_hex(str)
   if not str then return false end
   return #str >= 4 and #str <= 7 and str:match("^#%x+$")
 end
+
+--- Constants
 
 ---@class DefaultTheme
 local DEFAULT_THEME = {
@@ -46,7 +49,6 @@ local DEFAULT_THEME = {
   },
 }
 
-
 ---@class Theme
 ---@field Foreground Foreground
 ---@field Background Background
@@ -57,23 +59,22 @@ local DEFAULT_THEME = {
 ---@param name `FVar`
 ---@return FVar
 local function FVarBuilder(name)
-  local __index = vim.tbl_extend(
+
+  local __index = DEFAULT_THEME[name]
+
+  __index = vim.tbl_deep_extend(
     'force',
     DEFAULT_THEME[name],
     vim.g.onigiri['theme'][name])
 
-  local __call = function(_, fcolor)
-    assert(contains(keys(__index), fcolor), ("Invalid key entry: '%s'"):format(fcolor))
-    return __index[fcolor]
-  end
   local FVar = setmetatable({}, {
-    __index = __index,
+    __index = function(_, key) return __index[key] end,
     __newindex = function(_, k, v)
       assert(valid_hex(v), ("Invalid hex color: '%s'"):format(v))
       assert(contains(keys(__index), k), ("Invalid key entry: '%s'"):format(k))
       __index[k] = v
     end,
-    __call = __call,
+    __call = function() return __index end,
     __tostring = function()
       local ret = {}
       for k, v in pairs(__index) do
@@ -86,31 +87,24 @@ local function FVarBuilder(name)
   return FVar
 end
 
--- ---@param self Theme
--- ---@param group_name string
--- ---@param color string
--- ---@param options HighlightingOptions
--- function Theme:getHighlight(group_name, color, options)
---   local highlight = {}
---   for _, option in ipairs(options) do
---     highlight[option] = self[name][option]
---   end
---   return highlight
--- end
-
 ---@return Theme
 local function ThemeBuilder()
   local __index = {
-    Foreground = FVarBuilder("Foreground"),
-    Background = FVarBuilder("Background"),
-    Shade = FVarBuilder("Shade"),
-    Colors = FVarBuilder("Colors"),
+    Foreground = FVarBuilder("Foreground")(),
+    Background = FVarBuilder("Background")(),
+    Shade = FVarBuilder("Shade")(),
+    Colors = FVarBuilder("Colors")(),
   }
   local Theme = setmetatable({}, {
+    ---@return FunctionalVariables
     __index = __index,
-    __call = function(_, group_name, fcolor)
-      return __index[group_name](fcolor)
-    end,
+    -- __call = function()
+    --   local ret = {}
+    --   for k, v in pairs(__index) do
+    --     ret[k] = v
+    --   end
+    --   return ret
+    -- end,
     __tostring = function()
       local ret = {}
       for _, v in pairs(__index) do
@@ -123,8 +117,39 @@ local function ThemeBuilder()
   return Theme
 end
 
-local theme = ThemeBuilder()
-print(theme)
--- print(theme.Foreground)
+local function ConfigBuilder()
+  if not vim.g.onigiri then
+    vim.g.onigiri = {
+      theme = DEFAULT_THEME,
+      ts_extended = true,
+    }
+  end
+  local __index = {
+    theme = ThemeBuilder(),
+    ts_extended = vim.g.onigiri.ts_extended or true
+  }
+  local Config = setmetatable({}, {
+    __index = function(_, key) return __index[key] end,
+    -- __call = function()
+    --   local ret = {}
+    --   for k, v in pairs(__index) do
+    --     ret[k] = v()
+    --   end
+    --   return ret
+    -- end,
+  })
+  function Config.load()
+    if Config.ts_extended then
+      require 'onigiri.ts-extended'.load()
+    end
+    local theme = require 'onigiri.theme'.Theme(Config.theme)
+    local nvim_set_hl = vim.api.nvim_set_hl
+    for group, attrs in pairs(theme) do
+      nvim_set_hl(0, group, attrs)
+    end
+  end
 
-return ThemeBuilder()
+  return Config
+end
+
+return { ConfigBuilder = ConfigBuilder }
