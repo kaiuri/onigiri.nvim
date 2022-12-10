@@ -89,10 +89,12 @@ semantic highlights.
 - `lua`
 - `make`
 - `markdown`
+- `markdown_inline`
 - `python`
 - `rust`
 - `toml`
 - `typescript`
+- `vim`
 - `yaml`
 
 ### 🌚 I need both `dark` and `light` colorschemes 🌝
