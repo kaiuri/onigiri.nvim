@@ -1,6 +1,7 @@
 local ok, bit = pcall(require, 'bit')
 if not ok then -- If bit library is missing, do not load module
-  error('chroma.lua requires missing LuaJIT BitOp library - https://bitop.luajit.org', vim.log.levels.ERROR)
+  vim.notify('chroma.lua requires missing LuaJIT BitOp library - https://bitop.luajit.org', vim.log.levels.ERROR)
+  return {}
 end
 
 -- LuaJIT bitlib
