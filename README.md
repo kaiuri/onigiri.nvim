@@ -113,9 +113,9 @@ end
 ---@method desaturate fun(n: number): ChromaColor  # n ∈ [0,1]
 ---@method lighten fun(): ChromaColor  # n ∈ [0,1]
 ---@method print fun(): ChromaColor    # prints hex color
----@method rotate fun(): ChromaColor   # n ∈ [0,360] ⊂ R
+---@method rotate fun(): ChromaColor   # n ∈ [0,360] ⊂ Z
 ---@method saturate fun(n: number): ChromaColor  # n ∈ [0,1]
----@method scale fun(n: integer): ChromaColor    # 0 < n ≤ 16
+---@method scale fun(n: integer): ChromaColor    # n ∈ [1, 16] ⊂ Z
 ---@method to fun(space: "hex"|"hsl"|"rgb"|"lab"): string|table  # color value on `space`
 local Chroma = require 'onigiri'.chroma
 local my_color = Chroma('#123123') -- Color object
