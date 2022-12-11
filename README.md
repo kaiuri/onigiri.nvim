@@ -104,30 +104,26 @@ local function pick(color)
 end
 ```
 
-<!--
 ### I like to experiment ⚗️
 
-`onigiri` provides a simple port of [chroma-js](https://www.npmjs.com/package/chroma-js). It needs Neovim with LuaJIT or its [BitOp](https://bitop.luajit.org/) module available, else you'll get an error. Worry not, it's available, unless you compiled Neovim without LuaJIT. Which is hardly ever the case.
+`onigiri` provides an unostentatious port of [chroma-js](https://www.npmjs.com/package/chroma-js). It needs Neovim compiled with LuaJIT or its [BitOp](https://bitop.luajit.org/) module available, else you'll get an error. Worry not, it's available, unless you compiled Neovim without LuaJIT. Which is hardly ever the case.
 
 ```lua
-local chroma = require 'onigiri'.chroma
----@method hex()              # returns hex string from chroma object,
----@method analogous()        # returns its analogous color
----@method darken(amount)     # [0,1]
----@method desaturate(amount) # [0,1]
----@method lighten(amount)    # [0,1]
----@method rotate(amount)     # [0,360]
----@method saturate(amount)   # [0,1]
-
-local my_color = chroma('#123123') -- Color object
-
-print(my_color:hex())              -- '#123123'
-
-print(my_color:complement():hex()) -- '#311220'
+---@method darken fun(n: number): ChromaColor  # n ∈ [0,1]
+---@method desaturate fun(n: number): ChromaColor  # n ∈ [0,1]
+---@method lighten fun(): ChromaColor  # n ∈ [0,1]
+---@method print fun(): ChromaColor    # prints hex color
+---@method rotate fun(): ChromaColor   # n ∈ [0,360] ⊂ R
+---@method saturate fun(n: number): ChromaColor  # n ∈ [0,1]
+---@method scale fun(n: integer): ChromaColor    # 0 < n ≤ 16
+---@method to fun(space: "hex"|"hsl"|"rgb"|"lab"): string|table  # color value on `space`
+local Chroma = require 'onigiri'.chroma
+local my_color = Chroma('#123123') -- Color object
+print(my_color:to('hex')) -- '#123123'
+vim.pretty_print(my_color:to('rgb')) -- { 18, 49, 35 }
 
 -- etc, ad nauseam, bla, bla, bla ...
 ```
--->
 
 ### Installation 🔌
 
