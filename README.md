@@ -1,7 +1,6 @@
 # onigiri 🍚
 
-Not a colorscheme, your colorscheme. This plugin removes the boilerplate needed to create the colorscheme you always wanted!
-Set the provided variables and get a well-balanced colorscheme.
+Give it some ingredients and it makes the perfect onig... Oh... colorscheme!
 
 ### Screenshots
 
@@ -27,9 +26,9 @@ Set the provided variables and get a well-balanced colorscheme.
 
 ### I hate boiler plate 🍳
 
-`onigiri` abstracts away all the boiler plate! Set some variables and be done with it.
+`onigiri` abstracts away most the boiler plate! From `592` to `19`!
 
-### I can't choose a color 🎨
+### I can't choose! 🎨
 
 `onigiri` provides a preset theme you can make yours
 
@@ -75,8 +74,7 @@ local mariana = require 'onigiri'.presets['mariana'] -- Sublime's Mariana Theme
 
 ### I want those cool TextMate highlights 🎭
 
-`onigiri` provides custom queries to make it look pretty even without LSP
-semantic highlights.
+`onigiri` provides custom queries to **make it look pretty** even **without LSP semantic highlighting**.
 
 - `bash`
 - `clojure`
