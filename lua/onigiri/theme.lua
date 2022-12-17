@@ -307,11 +307,23 @@ local function Theme(v)
   hl.rainbowcol6 = { fg = v.Colors.Important }
   hl.rainbowcol7 = { fg = v.Colors.Warn }
 
-  hl.IndentBlanklineContextChar = { fg = v.Foreground.muted, bg = 'NONE' }
-  hl.IndentBlanklineContextStart =
-    { sp = v.Foreground.muted, underdotted = true }
-  hl.IndentBlanklineSpaceCharBlankline = { link = 'NonText' }
-  hl.IndentBlanklineSpaceChar = { link = 'NonText' }
+  hl.IndentBlanklineChar =
+    { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineSpaceChar =
+    { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineSpaceCharBlankline =
+    { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineContextChar =
+    { fg = v.Foreground.muted, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineContextSpaceChar =
+    { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineContextStart = {
+    fg = 'NONE',
+    bg = 'NONE',
+    sp = v.Foreground.muted,
+    underdotted = true,
+    nocombine = true,
+  }
 
   hl.CmpItemAbbrDeprecated = { strikethrough = true }
   hl.CmpItemKindStruct = { fg = v.Colors.Caution }
