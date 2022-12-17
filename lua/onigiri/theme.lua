@@ -1,5 +1,5 @@
 ---Takes in a FunctionalVariables dictionary, outputs a colorscheme table.
-local presets = require('onigiri.presets.mariana')
+local presets = require 'onigiri.presets.mariana'
 ---@param v FunctionalVariables
 ---@return { [string]: HighlightDefMap }
 local function Theme(v)
@@ -14,7 +14,8 @@ local function Theme(v)
   hl.FloatBorder = { fg = v.Foreground.surface, bg = v.Background.default }
 
   hl.Pmenu = { bg = v.Background.emphasis }
-  hl.PmenuSel = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
+  hl.PmenuSel =
+    { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
   hl.PmenuSbar = { bg = hl.Pmenu.bg, fg = hl.PmenuSel.bg }
   hl.PmenuThumb = { bg = hl.PmenuSel.bg }
 
@@ -71,7 +72,8 @@ local function Theme(v)
 
   hl.TabLine = { fg = v.Foreground.default, bg = v.Background.muted }
   hl.TabLineFill = { fg = v.Foreground.default, bg = v.Background.muted }
-  hl.TabLineSel = { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
+  hl.TabLineSel =
+    { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
 
   hl.WarningMsg = { link = 'ErrorMsg' }
 
@@ -83,30 +85,37 @@ local function Theme(v)
   hl.MatchParen = { bg = v.Shade.default, bold = true }
 
   hl.DiagnosticError = { fg = v.Colors.Error, bg = 'NONE' }
-  hl.DiagnosticSignError = { fg = hl.DiagnosticError.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineError = { sp = hl.DiagnosticError.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignError =
+    { fg = hl.DiagnosticError.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineError =
+    { sp = hl.DiagnosticError.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextError = { fg = hl.DiagnosticError.fg, bg = 'NONE' }
   hl.DiagnosticHint = { fg = v.Colors.Hint, bg = 'NONE' }
-  hl.DiagnosticSignHint = { fg = hl.DiagnosticHint.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineHint = { sp = hl.DiagnosticHint.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignHint =
+    { fg = hl.DiagnosticHint.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineHint =
+    { sp = hl.DiagnosticHint.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextHint = { fg = hl.DiagnosticHint.fg, bg = 'NONE' }
   hl.DiagnosticInfo = { fg = v.Colors.Info, bg = 'NONE' }
-  hl.DiagnosticSignInfo = { fg = hl.DiagnosticInfo.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineInfo = { sp = hl.DiagnosticInfo.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignInfo =
+    { fg = hl.DiagnosticInfo.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineInfo =
+    { sp = hl.DiagnosticInfo.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextInfo = { fg = hl.DiagnosticInfo.fg, bg = 'NONE' }
   hl.DiagnosticWarn = { fg = v.Colors.Caution, bg = 'NONE' }
-  hl.DiagnosticSignWarn = { fg = hl.DiagnosticWarn.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineWarn = { sp = hl.DiagnosticWarn.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignWarn =
+    { fg = hl.DiagnosticWarn.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineWarn =
+    { sp = hl.DiagnosticWarn.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextWarn = { fg = hl.DiagnosticWarn.fg, bg = 'NONE' }
 
-
-  hl.Boolean = { fg = v.Colors.Error, italic = true, }
+  hl.Boolean = { fg = v.Colors.Error, italic = true }
   hl.Character = { fg = v.Colors.Info }
   hl.Comment = { fg = v.Foreground.muted }
   hl.SpecialComment = { link = 'Comment' }
   hl.Conditional = { fg = v.Colors.Trace }
   hl.Constant = { fg = v.Foreground.emphasis }
-  hl.Define = { fg = v.Colors.Trace, italic = true, }
+  hl.Define = { fg = v.Colors.Trace, italic = true }
   hl.Delimiter = { fg = v.Foreground.muted }
   hl.Float = { fg = v.Colors.Important }
   hl.Function = { fg = v.Colors.Hint }
@@ -239,9 +248,10 @@ local function Theme(v)
 
   hl['@variable'] = { fg = v.Foreground.default }
   hl['@variable.builtin'] = { fg = v.Foreground.default, italic = true }
-  hl['@variable.builtin.clojure'] = { fg = v.Foreground.default, italic = true }
-  hl['@variable.builtin.javascript'] = { fg = v.Foreground.default, italic = true }
-
+  hl['@variable.builtin.clojure'] =
+    { fg = v.Foreground.default, italic = true }
+  hl['@variable.builtin.javascript'] =
+    { fg = v.Foreground.default, italic = true }
 
   hl.gitCommitSelectedFile = { italic = true }
   hl.gitCommitSummary = { bold = true }
@@ -298,7 +308,8 @@ local function Theme(v)
   hl.rainbowcol7 = { fg = v.Colors.Warn }
 
   hl.IndentBlanklineContextChar = { fg = v.Foreground.muted, bg = 'NONE' }
-  hl.IndentBlanklineContextStart = { sp = v.Foreground.muted, underdotted = true }
+  hl.IndentBlanklineContextStart =
+    { sp = v.Foreground.muted, underdotted = true }
   hl.IndentBlanklineSpaceCharBlankline = { link = 'NonText' }
   hl.IndentBlanklineSpaceChar = { link = 'NonText' }
 
@@ -324,14 +335,19 @@ local function Theme(v)
   hl.CmpItemKindTypeParameter = { fg = v.Colors.Caution }
   hl.CmpItemKindVariable = { fg = v.Foreground.default }
 
-  hl.LeapMatch = { fg = v.Background.emphasis, bg = v.Colors.Danger, bold = true }
-  hl.LeapLabelPrimary = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
-  hl.LeapLabelSecondary = { fg = v.Background.emphasis, bg = v.Colors.Warn, bold = true }
-  hl.LeapLabelSelected = { fg = v.Background.emphasis, bg = v.Colors.Important, bold = true }
+  hl.LeapMatch =
+    { fg = v.Background.emphasis, bg = v.Colors.Danger, bold = true }
+  hl.LeapLabelPrimary =
+    { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
+  hl.LeapLabelSecondary =
+    { fg = v.Background.emphasis, bg = v.Colors.Warn, bold = true }
+  hl.LeapLabelSelected =
+    { fg = v.Background.emphasis, bg = v.Colors.Important, bold = true }
   hl.LeapBackdrop = { fg = 'NONE', bg = v.Background.emphasis }
 
   hl.Sneak = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
-  hl.SneakLabel = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
+  hl.SneakLabel =
+    { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
 
   hl.GitSignsDelete = { fg = v.Colors.Error }
   hl.GitSignsChange = { fg = v.Colors.Caution }
@@ -366,7 +382,8 @@ local function Theme(v)
   hl.NvimTreeFolderName = { fg = v.Foreground.default, bg = v.Shade.default }
   hl.NvimTreeEmptyFolderName = { link = 'Comment' }
   hl.NvimTreeFolderIcon = { fg = v.Foreground.muted }
-  hl.NvimTreeExecFile = { fg = v.Colors.Info, bold = true, bg = v.Shade.default }
+  hl.NvimTreeExecFile =
+    { fg = v.Colors.Info, bold = true, bg = v.Shade.default }
   hl.NvimTreeFileDeleted = { link = 'Comment' }
   hl.NvimTreeFileNew = { fg = v.Background.emphasis, bg = v.Shade.default }
   hl.NvimTreeSpecialFile = { fg = v.Foreground.default, bg = v.Shade.default }
@@ -464,7 +481,6 @@ local function Theme(v)
   hl.CopilotSuggestion = { bg = v.Shade.emphasis, fg = v.Foreground.muted }
   hl.NoiceCursor = { fg = v.Foreground.default }
 
-
   --- coc.nvim
   hl.CocCodeLens = { fg = v.Foreground.muted, bg = v.Shade.default }
   hl.CocDisabled = { fg = v.Foreground.muted, bg = v.Shade.default }
@@ -477,9 +493,12 @@ local function Theme(v)
   -- hl.CocFadeOut = { link = 'Comment' }
   hl.CocPumVirtualText = { link = 'Comment' }
 
-  hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
-  hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
-  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightRead =
+    { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightText =
+    { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightWrite =
+    { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
 
   hl.CocHintFloat = { link = 'NormalFloat' }
   hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
@@ -576,7 +595,6 @@ local function Theme(v)
   hl.CocSemDocumentationVariable = { link = 'CocSemVariable' }
   hl.CocSemDocumentationFunction = { link = 'CocSemFunction' }
   hl.CocSemDocumentationMacroBang = { link = 'CocSemMacroBang' }
-
 
   --- coc-symbols
   hl.CocSymbolEnum = { fg = v.Colors.Caution }

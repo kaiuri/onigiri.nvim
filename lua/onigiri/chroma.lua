@@ -1,6 +1,9 @@
 local ok, bit = pcall(require, 'bit')
 if not ok then -- If bit library is missing, do not load module
-  vim.notify('chroma.lua requires missing LuaJIT BitOp library - https://bitop.luajit.org', vim.log.levels.ERROR)
+  vim.notify(
+    'chroma.lua requires missing LuaJIT BitOp library - https://bitop.luajit.org',
+    vim.log.levels.ERROR
+  )
   return {}
 end
 
@@ -87,11 +90,21 @@ end
 ---@param t number
 ---@return number
 local function hue(p, q, t)
-  if t < 0 then t = t + 1 end
-  if t > 1 then t = t - 1 end
-  if t < 1 / 6 then return p + (q - p) * 6 * t end
-  if t < 1 / 2 then return q end
-  if t < 2 / 3 then return p + (q - p) * (2 / 3 - t) * 6 end
+  if t < 0 then
+    t = t + 1
+  end
+  if t > 1 then
+    t = t - 1
+  end
+  if t < 1 / 6 then
+    return p + (q - p) * 6 * t
+  end
+  if t < 1 / 2 then
+    return q
+  end
+  if t < 2 / 3 then
+    return p + (q - p) * (2 / 3 - t) * 6
+  end
   return p
 end
 
@@ -114,7 +127,6 @@ HSL.to_rgb = function(hsl)
   end
   return { r * 255, g * 255, b * 255 }
 end
-
 
 ---@param hsl number[] # {h, s, l}
 ---@return string # #ffffff, etc
@@ -154,7 +166,6 @@ end
 ---@param arg string|{[1]: number, [2]: number, [3]: number, [4]: "rgb"|"hsl"|"lab"}
 ---@return ChromaColor
 local function ChromaBuilder(arg)
-
   local case = {
     ---@param color string
     string = function(color)
@@ -174,7 +185,7 @@ local function ChromaBuilder(arg)
         end,
       }
       return space_case[color[4] or 'hsl']()
-    end
+    end,
   }
 
   ---@class ChromaColor
@@ -185,12 +196,12 @@ local function ChromaBuilder(arg)
   Chroma.hsl = case[type(arg)](arg)
 
   function Chroma:print()
-    local hex = self:to('hex')
+    local hex = self:to 'hex'
 
     vim.api.nvim_set_hl(0, 'OnigiriChroma', {
       fg = hex,
       bg = hex,
-      bold = true
+      bold = true,
     })
     vim.api.nvim_echo({ { hex, 'OnigiriChroma' } }, false, {})
   end
@@ -212,11 +223,10 @@ local function ChromaBuilder(arg)
       local new_h = h + i / n
       local new_s = s + i / n
       local new_l = l + i / n
-      local new_color = { new_h, new_s, new_l, "hsl" }
+      local new_color = { new_h, new_s, new_l, 'hsl' }
       table.insert(colors, ChromaBuilder(new_color))
     end
     return colors
-
   end
 
   --- Converts to a colorspace
