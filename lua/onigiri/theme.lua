@@ -71,7 +71,7 @@ local function Theme(v)
 
   hl.TabLine = { fg = v.Foreground.default, bg = v.Background.muted }
   hl.TabLineFill = { fg = v.Foreground.default, bg = v.Background.muted }
-  hl.TabLineSel = { fg = v.Foreground.default, bg = v.Background.default }
+  hl.TabLineSel = { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
 
   hl.WarningMsg = { link = 'ErrorMsg' }
 
