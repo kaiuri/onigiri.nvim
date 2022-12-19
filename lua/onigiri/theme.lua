@@ -581,6 +581,8 @@ local function Theme(v)
   hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Note, italic = true }
   hl.CocSemDeclarationSelfKeyword = { fg = v.Colors.Error }
 
+  hl.CocSemDeclarationMacro = { fg = v.Colors.Hint }
+
   hl.CocSemDefaultLibrary = { italic = true }
 
   -- hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
