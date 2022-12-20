@@ -11,6 +11,8 @@
 
 "module" @function.macro
 
+(super) @function.builtin
+
 (new_expression
   constructor:
    (member_expression
