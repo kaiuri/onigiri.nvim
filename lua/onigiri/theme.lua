@@ -132,7 +132,7 @@ local function Theme(v)
   hl.Special = { fg = v.Colors.Hint }
   hl.SpecialChar = { fg = v.Colors.Hint }
   hl.SpecialKey = { fg = v.Colors.Hint }
-  hl.Statement = { fg = v.Colors.Trace }
+  hl.Statement = { fg = v.Colors.Error }
   hl.StorageClass = { fg = v.Colors.Error }
   hl.String = { fg = v.Colors.Info }
   hl.Struct = { fg = v.Colors.Error }
@@ -297,6 +297,10 @@ local function Theme(v)
   hl.helpExample = { fg = v.Colors.Info }
   hl.helpURL = { fg = v.Colors.Note, underline = true }
   hl.helpCommand = { bg = v.Foreground.surface }
+
+  --- Lua
+  hl.luaStringDelimiter = { fg = v.Colors.Note }
+
 
   --- rainbow parenthesis
   hl.rainbowcol1 = { fg = v.Foreground.default }
@@ -550,7 +554,6 @@ local function Theme(v)
   hl.CocSemKeyword = { italic = true }
 
   --- token-modifiers
-
   hl.CocSemReadonlyVariable = { fg = v.Foreground.emphasis }
   hl.CocSemStaticVariable = { fg = v.Foreground.emphasis }
   hl.CocSemCallableVariable = { fg = v.Colors.Note }
@@ -566,14 +569,6 @@ local function Theme(v)
   hl.CocSemDeclarationMacro = { fg = v.Colors.Hint }
 
   hl.CocSemDefaultLibrary = { italic = true }
-
-  -- hl.CocSemDefaultLibraryFunction = { fg = v.Colors.Note, italic = true }
-  -- hl.CocSemDefaultLibraryMethod = { fg = v.Colors.Hint, italic = true }
-  -- hl.CocSemDefaultLibraryNamespace = { fg = v.Colors.Caution, italic = true }
-  -- hl.CocSemDefaultLibraryStruct = { fg = v.Colors.Note, italic = true }
-  -- hl.CocSemDefaultLibraryType = { link = '@type.builtin' }
-  -- hl.CocSemDefaultLibraryTypeParameter = { fg = v.Colors.Note, italic = true }
-  -- hl.CocSemDefaultLibraryVariable = { fg = v.Foreground.default, italic = true }
 
   hl.CocSemDocumentationKeyword = { fg = v.Colors.Danger }
   hl.CocSemDocumentationString = { link = 'CocSemString' }
