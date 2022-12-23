@@ -483,6 +483,10 @@ local function Theme(v)
   hl.CocCodeLens = { fg = v.Foreground.muted, bg = v.Shade.default }
   hl.CocDisabled = { fg = v.Foreground.muted, bg = v.Shade.default }
 
+  hl.CocCursorRange = { fg = v.Shade.emphasis, bg = v.Colors.Important, bold = true }
+
+  hl.CocListsDesc = { fg = v.Foreground.muted }
+
   hl.CocFloatActive = { link = 'PmenuSel' }
   hl.CocFloatDividin = { link = 'Winseparator' }
   hl.CocFloatSbar = { link = 'PmenuSbar' }
@@ -491,12 +495,9 @@ local function Theme(v)
   -- hl.CocFadeOut = { link = 'Comment' }
   hl.CocPumVirtualText = { link = 'Comment' }
 
-  hl.CocHighlightRead =
-  { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
-  hl.CocHighlightText =
-  { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
-  hl.CocHighlightWrite =
-  { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightRead = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightText = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
 
   hl.CocHintFloat = { link = 'NormalFloat' }
   hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
