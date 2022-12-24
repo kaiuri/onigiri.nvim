@@ -14,8 +14,7 @@ local function Theme(v)
   hl.FloatBorder = { fg = v.Foreground.surface, bg = v.Background.default }
 
   hl.Pmenu = { bg = v.Background.emphasis }
-  hl.PmenuSel =
-  { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
+  hl.PmenuSel = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
   hl.PmenuSbar = { bg = hl.Pmenu.bg, fg = hl.PmenuSel.bg }
   hl.PmenuThumb = { bg = hl.PmenuSel.bg }
 
@@ -118,11 +117,11 @@ local function Theme(v)
   hl.Define = { fg = v.Colors.Trace, italic = true }
   hl.Delimiter = { fg = v.Foreground.muted }
   hl.Float = { fg = v.Colors.Important }
-  hl.Function = { fg = v.Colors.Hint }
+  hl.Function = { fg = v.Colors.Trace }
   hl.Identifier = { fg = v.Foreground.default }
   hl.Include = { fg = v.Colors.Error }
   hl.Keyword = { fg = v.Colors.Trace, italic = true }
-  hl.Label = { fg = v.Colors.Trace }
+  hl.Label = { fg = v.Colors.Hint }
   hl.Macro = { fg = v.Colors.Hint }
   hl.Number = { fg = v.Colors.Caution }
   hl.Operator = { fg = v.Colors.Danger }
@@ -297,10 +296,6 @@ local function Theme(v)
   hl.helpExample = { fg = v.Colors.Info }
   hl.helpURL = { fg = v.Colors.Note, underline = true }
   hl.helpCommand = { bg = v.Foreground.surface }
-
-  --- Lua
-  hl.luaStringDelimiter = { fg = v.Colors.Note }
-
 
   --- rainbow parenthesis
   hl.rainbowcol1 = { fg = v.Foreground.default }
