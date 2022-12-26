@@ -15,21 +15,21 @@ local function Theme(v)
 
   hl.Pmenu = { bg = v.Background.emphasis }
   hl.PmenuSel = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
-  hl.PmenuSbar = { bg = hl.Pmenu.bg, fg = hl.PmenuSel.bg }
-  hl.PmenuThumb = { bg = hl.PmenuSel.bg }
+  hl.PmenuSbar = { bg = v.Background.emphasis, fg = hl.PmenuSel.bg }
+  hl.PmenuThumb = { bg = v.Background.muted, }
 
   hl.NonText = { fg = v.Foreground.surface }
   hl.Conceal = { fg = v.Foreground.muted }
 
   hl.CursorLine = { bg = v.Background.muted }
-  hl.CursorColumn = { link = 'CursorLine' }
-  hl.ColorColumn = { link = 'CursorColumn' }
+  hl.CursorColumn = { bg = v.Background.muted }
+  hl.ColorColumn = { bg = v.Background.muted }
   hl.SignColumn = { fg = v.Foreground.default, bg = v.Background.default }
 
   hl.LineNr = { bg = v.Background.muted, fg = v.Foreground.emphasis }
   hl.LineNrAbove = { fg = v.Foreground.muted }
   hl.LineNrBelow = { fg = v.Foreground.muted }
-  hl.CursorLineNr = { link = 'LineNr' }
+  hl.CursorLineNr = { bg = v.Background.muted, fg = v.Foreground.emphasis }
 
   -- hl.DiffAdd    = { sp = v.Colors.Info, underline = true }
   hl.DiffAdd = { fg = v.Colors.Info }
@@ -50,15 +50,15 @@ local function Theme(v)
   hl.Exception = { fg = v.Colors.Trace, bg = v.Shade.default }
 
   hl.Folded = { fg = v.Foreground.muted, bg = v.Shade.default }
-  hl.FoldColumn = { link = 'Comment' }
+  hl.FoldColumn = { fg = v.Foreground.muted }
 
   hl.ModeMsg = { fg = v.Foreground.default }
   hl.MoreMsg = { fg = v.Foreground.default, bold = true }
 
-  hl.Question = { link = 'MoreMsg' }
+  hl.Question = { fg = v.Foreground.default, bold = true }
 
   hl.Search = { fg = v.Background.emphasis, bg = v.Colors.Caution }
-  hl.IncSearch = { link = 'Search' }
+  hl.IncSearch = { fg = v.Background.emphasis, bg = v.Colors.Caution }
   hl.Substitute = { bg = v.Background.muted }
 
   hl.SpellBad = { sp = v.Colors.Error, undercurl = true }
@@ -74,12 +74,12 @@ local function Theme(v)
   hl.TabLineSel =
   { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
 
-  hl.WarningMsg = { link = 'ErrorMsg' }
+  hl.WarningMsg = { fg = v.Colors.Warn, bg = v.Shade.default }
 
-  hl.WildMenu = { link = 'Pmenu' }
+  hl.WildMenu = { bg = v.Background.emphasis }
 
-  hl.Winseparator = { fg = v.Foreground.surface }
-  hl.VertSplit = { link = 'Winseparator' }
+  hl.WinSeparator = { fg = v.Foreground.surface }
+  hl.VertSplit = { fg = v.Foreground.surface }
 
   hl.MatchParen = { bg = v.Shade.default, bold = true }
 
@@ -111,7 +111,7 @@ local function Theme(v)
   hl.Boolean = { fg = v.Colors.Error, italic = true }
   hl.Character = { fg = v.Colors.Info }
   hl.Comment = { fg = v.Foreground.muted }
-  hl.SpecialComment = { link = 'Comment' }
+  hl.SpecialComment = { fg = v.Foreground.muted }
   hl.Conditional = { fg = v.Colors.Trace }
   hl.Constant = { fg = v.Foreground.emphasis }
   hl.Define = { fg = v.Colors.Trace, italic = true }
@@ -144,9 +144,9 @@ local function Theme(v)
   hl.Underlined = { underdotted = true }
   hl.Whitespace = { fg = v.Foreground.surface }
 
-  hl['@boolean'] = { link = 'Boolean' }
+  hl['@boolean'] = { fg = v.Colors.Error, italic = true }
   hl['@character'] = { fg = v.Colors.Info }
-  hl['@character.special'] = { link = 'SpecialChar' }
+  hl['@character.special'] = { fg = v.Colors.Hint }
 
   hl['@comment'] = { fg = v.Foreground.muted }
 
@@ -270,7 +270,7 @@ local function Theme(v)
   hl.markdownCodeDelimiter = { fg = v.Colors.Note }
   hl.markdownListMarker = { fg = v.Colors.Important }
 
-  hl.htmlTagName = { link = 'Tag' }
+  hl.htmlTagName = { fg = v.Colors.Error }
 
   hl.qfFileName = { fg = v.Colors.Hint }
   hl.qfLineNr = { bold = true }
@@ -289,10 +289,10 @@ local function Theme(v)
   hl.FennelKeyword = { fg = v.Colors.Error }
 
   --- Help
-  hl.helpHyperTextEntry = { link = 'TSURI' }
+  hl.helpHyperTextEntry = { fg = v.Colors.Note, underdotted = true }
   hl.helpSectionDelim = { fg = v.Colors.Error, bold = true }
   hl.helpHyperTextJump = { fg = v.Colors.Note, underdotted = true }
-  hl.helpHeader = { link = 'Title' }
+  hl.helpHeader = { fg = v.Foreground.default, bold = true }
   hl.helpExample = { fg = v.Colors.Info }
   hl.helpURL = { fg = v.Colors.Note, underline = true }
   hl.helpCommand = { bg = v.Foreground.surface }
@@ -486,15 +486,15 @@ local function Theme(v)
   hl.CocFloatDividin = { link = 'Winseparator' }
   hl.CocFloatSbar = { link = 'PmenuSbar' }
   hl.CocFloatThumb = { link = 'PmenuThumb' }
-  hl.CocFloating = { link = 'NormalFloat' }
+  hl.CocFloating = { bg = v.Background.emphasis }
   -- hl.CocFadeOut = { link = 'Comment' }
-  hl.CocPumVirtualText = { link = 'Comment' }
+  hl.CocPumVirtualText = { fg = v.Foreground.muted }
 
-  hl.CocHighlightRead = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
-  hl.CocHighlightText = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
-  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis }
+  hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis, fg = 'NONE' }
+  hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis, fg = 'NONE' }
+  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis, fg = 'NONE' }
 
-  hl.CocHintFloat = { link = 'NormalFloat' }
+  hl.CocHintFloat = { bg = v.Background.emphasis }
   hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
   hl.CocHoverRange = { bg = v.Background.emphasis }
   hl.CocInlayHintType = { fg = v.Foreground.muted, bg = v.Shade.default }
