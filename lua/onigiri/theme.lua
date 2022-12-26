@@ -479,6 +479,7 @@ local function Theme(v)
   hl.CocDisabled = { fg = v.Foreground.muted, bg = v.Shade.default }
 
   hl.CocCursorRange = { fg = v.Shade.emphasis, bg = v.Colors.Important, bold = true }
+  hl.CocSelectedRange = { fg = v.Shade.emphasis, bg = v.Colors.Important, bold = true }
 
   hl.CocListsDesc = { fg = v.Foreground.muted }
 
