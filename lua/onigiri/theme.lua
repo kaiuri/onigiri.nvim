@@ -117,7 +117,7 @@ local function Theme(v)
   hl.Define = { fg = v.Colors.Trace, italic = true }
   hl.Delimiter = { fg = v.Foreground.muted }
   hl.Float = { fg = v.Colors.Important }
-  hl.Function = { fg = v.Colors.Trace }
+  hl.Function = { fg = v.Colors.Hint }
   hl.Identifier = { fg = v.Foreground.default }
   hl.Include = { fg = v.Colors.Error }
   hl.Keyword = { fg = v.Colors.Trace, italic = true }
