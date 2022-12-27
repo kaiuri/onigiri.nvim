@@ -29,3 +29,13 @@
 
 (lambda ["lambda" ("λ")] @keyword)
 (match ["match"] @keyword.function)
+
+(list
+  .
+  (symbol) @storageclass
+  (symbol) @function.call
+  (sequential_table (symbol))
+  (list
+    (symbol)))
+
+["local"] @storageclass
