@@ -1,6 +1,5 @@
 --- Sets custom queries from treesitter
----@param config FunctionalVariables
-local function load(config)
+local function load()
   local nvim_set_hl = vim.api.nvim_set_hl
   local hl = {}
 

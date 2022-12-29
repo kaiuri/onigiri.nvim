@@ -1,9 +1,8 @@
 ---Takes in a FunctionalVariables dictionary, outputs a colorscheme table.
-local presets = require 'onigiri.presets.mariana'
+-- local presets = require 'onigiri.presets.mariana'
 ---@param v FunctionalVariables
 ---@return { [string]: HighlightDefMap }
 local function Theme(v)
-  v = v or presets
 
   ---@type {[string]: HighlightDefMap }
   local hl = {}
@@ -15,7 +14,7 @@ local function Theme(v)
 
   hl.Pmenu = { bg = v.Background.emphasis }
   hl.PmenuSel = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
-  hl.PmenuSbar = { bg = v.Background.emphasis, fg = hl.PmenuSel.bg }
+  hl.PmenuSbar = { bg = v.Background.emphasis, fg = v.Background.muted }
   hl.PmenuThumb = { bg = v.Background.muted, }
 
   hl.NonText = { fg = v.Foreground.surface }
@@ -123,7 +122,7 @@ local function Theme(v)
   hl.Keyword = { fg = v.Colors.Trace, italic = true }
   hl.Label = { fg = v.Colors.Hint }
   hl.Macro = { fg = v.Colors.Hint }
-  hl.Number = { fg = v.Colors.Caution }
+  hl.Number = { fg = v.Colors.Important }
   hl.Operator = { fg = v.Colors.Danger }
   hl.PreCondit = { fg = v.Colors.Error }
   hl.PreProc = { fg = v.Colors.Hint }
@@ -162,7 +161,7 @@ local function Theme(v)
   hl['@field.toml'] = { fg = v.Colors.Error }
   hl['@field.yaml'] = { fg = v.Colors.Hint }
 
-  hl['@function'] = { link = 'Function' }
+  hl['@function'] = { fg = v.Colors.Hint }
   hl['@function.css'] = { fg = v.Colors.Note }
   hl['@function.builtin'] = { fg = v.Colors.Note, italic = true }
   hl['@function.call'] = { fg = v.Colors.Note }
@@ -193,8 +192,8 @@ local function Theme(v)
 
   hl['@namespace'] = { fg = v.Colors.Caution }
 
-  hl['@float'] = { link = 'Float' }
-  hl['@number'] = { link = 'Number' }
+  hl['@float'] = { fg = v.Colors.Important }
+  hl['@number'] = { fg = v.Colors.Important }
   hl['@number.bash'] = { fg = v.Colors.Caution }
 
   hl['@operator'] = { fg = v.Colors.Danger }
@@ -206,7 +205,7 @@ local function Theme(v)
   hl['@property.toml'] = { fg = v.Colors.Hint }
 
   hl['@punctuation.bracket'] = { fg = v.Foreground.emphasis }
-  hl['@punctuation.delimiter'] = { link = 'Delimiter' }
+  hl['@punctuation.delimiter'] = { fg = v.Foreground.muted }
   hl['@punctuation.delimiter.python'] = { fg = v.Foreground.emphasis }
   hl['@punctuation.delimiter.yaml'] = { fg = v.Colors.Note }
   hl['@punctuation.special'] = { fg = v.Colors.Hint }
@@ -216,9 +215,9 @@ local function Theme(v)
   hl['@repeat.python'] = { fg = v.Colors.Error }
 
   hl['@string'] = { fg = v.Colors.Info }
-  hl['@string.escape'] = { link = 'SpecialChar' }
+  hl['@string.escape'] = { fg = v.Colors.Hint }
   hl['@string.regex'] = { fg = v.Colors.Hint }
-  hl['@string.special'] = { link = 'SpecialChar' }
+  hl['@string.special'] = { fg = v.Colors.Hint }
 
   hl['@symbol'] = { fg = v.Colors.Hint }
 
@@ -247,15 +246,14 @@ local function Theme(v)
 
   hl['@variable'] = { fg = v.Foreground.default }
   hl['@variable.builtin'] = { fg = v.Foreground.default, italic = true }
-  hl['@variable.builtin.clojure'] =
-  { fg = v.Foreground.default, italic = true }
-  hl['@variable.builtin.javascript'] =
-  { fg = v.Foreground.default, italic = true }
+  hl['@variable.builtin.clojure'] = { fg = v.Foreground.default, italic = true }
+  hl['@variable.builtin.javascript'] = { fg = v.Foreground.default, italic = true }
 
   hl.gitCommitSelectedFile = { italic = true }
   hl.gitCommitSummary = { bold = true }
   hl.gitCommitTrailerToken = { fg = v.Colors.Trace, italic = true }
-  hl.gitconfigVariable = { link = '@field' }
+  hl.gitconfigVariable = { fg = v.Colors.Accent }
+  hl.gitcommitFirstLine = { bold = true }
 
   hl.healthHelp = { fg = v.Colors.Important }
   hl.healthSuccess = { fg = v.Colors.Info }
@@ -391,11 +389,11 @@ local function Theme(v)
   hl.NvimTreeOpenedFolderName = { underdotted = true }
   hl.NvimTreeOpenedFile = { bg = v.Background.muted }
   hl.NvimTreeFolderName = { fg = v.Foreground.default, bg = v.Shade.default }
-  hl.NvimTreeEmptyFolderName = { link = 'Comment' }
+  hl.NvimTreeEmptyFolderName = { fg = v.Foreground.muted }
   hl.NvimTreeFolderIcon = { fg = v.Foreground.muted }
   hl.NvimTreeExecFile =
   { fg = v.Colors.Info, bold = true, bg = v.Shade.default }
-  hl.NvimTreeFileDeleted = { link = 'Comment' }
+  hl.NvimTreeFileDeleted = { fg = v.Foreground.muted }
   hl.NvimTreeFileNew = { fg = v.Background.emphasis, bg = v.Shade.default }
   hl.NvimTreeSpecialFile = { fg = v.Foreground.default, bg = v.Shade.default }
   hl.NvimTreeGitDirty = { fg = v.Colors.Error, bg = v.Shade.default }
@@ -463,10 +461,10 @@ local function Theme(v)
   hl.FzfLuaNormal = { fg = v.Foreground.default, bg = v.Background.default }
   hl.FzfLuaBorder = { fg = v.Foreground.surface, bg = v.Background.default }
   hl.FzfLuaCursor = { fg = v.Foreground.default, bg = v.Background.default }
-  hl.FzfLuaSearch = { link = 'Search' }
+  hl.FzfLuaSearch = { fg = v.Background.emphasis, bg = v.Colors.Caution }
   hl.FzfLuaTitle = { fg = v.Foreground.default, bold = true }
-  hl.FzfLuaCursorLine = { link = 'CursorLine' }
-  hl.FzfLuaCursorLineNr = { link = 'CursorLineNr' }
+  hl.FzfLuaCursorLine = { bg = v.Background.muted, fg = v.Foreground.emphasis }
+  hl.FzfLuaCursorLineNr = { bg = v.Background.muted, fg = v.Foreground.emphasis }
 
   hl.dosiniLabel = { fg = v.Colors.Hint }
   hl.dosiniHeader = { fg = v.Colors.Error }
@@ -483,11 +481,11 @@ local function Theme(v)
 
   hl.CocListsDesc = { fg = v.Foreground.muted }
 
-  hl.CocFloatActive = { link = 'PmenuSel' }
-  hl.CocFloatDividin = { link = 'Winseparator' }
-  hl.CocFloatSbar = { link = 'PmenuSbar' }
-  hl.CocFloatThumb = { link = 'PmenuThumb' }
-  hl.CocFloating = { bg = v.Background.emphasis }
+  hl.CocFloatActive = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
+  hl.CocFloatDividin = { fg = v.Foreground.surface }
+  hl.CocFloatSbar = { bg = v.Background.emphasis, fg = v.Background.muted }
+  hl.CocFloatThumb = { bg = v.Background.muted }
+  -- hl.CocFloating = { bg = v.Background.emphasis }
   -- hl.CocFadeOut = { link = 'Comment' }
   hl.CocPumVirtualText = { fg = v.Foreground.muted }
 
@@ -502,7 +500,7 @@ local function Theme(v)
   hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
 
   -- coc-lists
-  hl.CocListLine = { link = 'PmenuSel' }
+  hl.CocListLine = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
   hl.CocListPath = { fg = v.Foreground.default }
   hl.CocListMode = { fg = v.Foreground.default }
   hl.CocListsDesc = { fg = v.Foreground.default }

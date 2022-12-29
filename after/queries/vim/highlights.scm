@@ -1,6 +1,6 @@
 ; extends
 
-["let" "call" ] @storageclass
+["let" "call" "set" ] @storageclass
 ["execute"] @function.call
 (literal_dictionary
   .
