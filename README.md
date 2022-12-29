@@ -2,24 +2,6 @@
 
 Give it some ingredients and it makes the perfect onig... Oh... colorscheme!
 
-### Screenshots
-
-#### Mariana
-
-<img src="https://user-images.githubusercontent.com/19148108/204261202-bb691e2e-5b77-4c8a-a1f6-e1811b7248b1.png" width="60%">
-
-#### Solarized Dark
-
-<img src="https://user-images.githubusercontent.com/19148108/204261315-6e1c2d32-a50a-4b9b-baed-b2c8886294cd.png" width="60%">
-
-#### Tokyo Night-ish
-
-<img src="https://user-images.githubusercontent.com/19148108/204261493-17b28b1e-8c17-47bc-8aba-e51a8bff9a68.png" width="60%">
-
-#### Gruvbox-ish
-
-<img src="https://user-images.githubusercontent.com/19148108/204261607-be667f73-13e6-41ea-be58-bbc6469853fa.png" width="60%">
-
 ### I hate boiler plate 🍳
 
 `onigiri` abstracts away most the boiler plate! From `592` to `19`!
@@ -34,13 +16,23 @@ print(require 'onigiri'.presets)
 
 <details>
 
-```lua
---- mariana
---- gruvbox
---- kaolin
---- solarized
---- moonlight
-```
+#### mariana
+
+<img src="https://user-images.githubusercontent.com/19148108/204261202-bb691e2e-5b77-4c8a-a1f6-e1811b7248b1.png" width="60%">
+
+#### gruvbox
+
+<img src="https://user-images.githubusercontent.com/19148108/204261607-be667f73-13e6-41ea-be58-bbc6469853fa.png" width="60%">
+ 
+#### kaolin
+
+#### solarized
+
+<img src="https://user-images.githubusercontent.com/19148108/204261315-6e1c2d32-a50a-4b9b-baed-b2c8886294cd.png" width="60%">
+
+#### moonlight
+
+<img src="https://user-images.githubusercontent.com/19148108/204261493-17b28b1e-8c17-47bc-8aba-e51a8bff9a68.png" width="60%">
 
 </details>
 
