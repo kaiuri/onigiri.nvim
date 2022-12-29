@@ -1,4 +1,4 @@
-local config = require('onigiri').config
+local config = require('onigiri.config')
 local v = config()
 
 local fg = v.Foreground.default

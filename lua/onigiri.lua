@@ -1,31 +1,15 @@
-local vim_g = vim.g
-local Theme = require('onigiri.theme').Theme
-local ts_extended = require 'onigiri.ts-extended'
-
-local presets = {
-  mariana = require 'onigiri.presets.mariana',
-}
-
----@return FunctionalVariables
-local function config()
-  if not vim.g.onigiri then
-    vim.g.onigiri = {
-      theme = presets.mariana,
-    }
-  end
-
-  return vim.g.onigiri.theme
-end
+local Theme = require 'onigiri.theme'.Theme
+local config = require 'onigiri.config'
 
 local load = function()
-  if vim_g.colors_name then
+  if vim.g.colors_name then
     vim.cmd 'hi clear'
   end
 
   vim.cmd 'highlight clear'
   vim.cmd 'set t_Co=256'
 
-  vim_g.colors_name = 'onigiri'
+  vim.g.colors_name = 'onigiri'
 
   local theme = Theme(config())
 
@@ -35,12 +19,12 @@ local load = function()
     nvim_set_hl(0, group, attrs)
   end
 
-  ts_extended.load()
+  require 'onigiri.ts-extended'()
 end
 
 return {
   load = load,
   config = config,
   chroma = require 'onigiri.chroma',
-  presets = presets,
+  presets = require 'onigiri.presets',
 }

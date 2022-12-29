@@ -1,7 +1,8 @@
 ; extends
 
 ["let" "call" "set" ] @storageclass
-["execute"] @function.call
+["execute" "highlight"] @macro
+
 (literal_dictionary
   .
   ["#{"] @punctuation.special)

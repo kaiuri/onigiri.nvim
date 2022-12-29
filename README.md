@@ -20,20 +20,21 @@ Give it some ingredients and it makes the perfect onig... Oh... colorscheme!
 
 <img src="https://user-images.githubusercontent.com/19148108/204261607-be667f73-13e6-41ea-be58-bbc6469853fa.png" width="60%">
 
-#### ImHex
-
-<img src="https://user-images.githubusercontent.com/19148108/204261729-9bf5d6b9-455a-4aaf-9329-06f2d25a1883.png" width="60%">
-
 ### I hate boiler plate 🍳
 
 `onigiri` abstracts away most the boiler plate! From `592` to `19`!
 
 ### I can't choose! 🎨
 
-`onigiri` provides a preset theme you can make yours
+`onigiri` provides some preset theme you can make yours
 
 ```lua
-local mariana = require 'onigiri'.presets['mariana'] -- Sublime's Mariana Theme
+print(require 'onigiri'.presets)
+--- mariana
+--- gruvbox
+--- kaolin
+--- solarized
+--- moonlight
 ```
 
 <details>
