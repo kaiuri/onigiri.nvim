@@ -4,7 +4,7 @@ Give it some ingredients and it makes the perfect onig... Oh... colorscheme!
 
 ### I hate boiler plate 🍳
 
-`onigiri` abstracts away most the boiler plate! From `592` to `19`!
+`onigiri` abstracts away most of the boiler plate! From `592` to `19`!
 
 ### I can't choose! 🎨
 
