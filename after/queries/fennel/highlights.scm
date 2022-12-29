@@ -1,4 +1,5 @@
 ; extends
+; TODO: Code cleanup
 [ "\"" "'" ] @string.delimiter
 [ "`" ] @operator
 
@@ -11,7 +12,7 @@
 (hashfn ["#"] @operator)
 
 (list
- (symbol) @keyword (#any-of? @keyword "macro")
+ (symbol) @storageclass (#any-of? @storageclass "macro")
  (symbol) @symbol
  (sequential_table))
 
@@ -27,8 +28,9 @@
 
 (unquote [","] @operator)
 
-(lambda ["lambda" ("λ")] @keyword)
+(lambda ["lambda" ("λ")] @storageclass)
 (match ["match"] @keyword.function)
+["fn"] @storageclass
 
 (list
   .

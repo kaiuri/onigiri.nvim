@@ -197,7 +197,7 @@ local function Theme(v)
   hl['@number'] = { link = 'Number' }
   hl['@number.bash'] = { fg = v.Colors.Caution }
 
-  hl['@operator'] = { link = 'Operator' }
+  hl['@operator'] = { fg = v.Colors.Danger }
   hl['@parameter'] = { fg = v.Foreground.default }
   hl['@parameter.bash'] = { fg = v.Foreground.default }
   hl['@parameter.reference'] = { fg = v.Foreground.default }
@@ -539,7 +539,7 @@ local function Theme(v)
   hl.CocSemRegexp = { fg = v.Colors.Hint }
   hl.CocSemModifier = { fg = v.Colors.Error }
   hl.CocSemStruct = { fg = v.Colors.Caution }
-  hl.CocSemTypeParameter = { fg = v.Colors.Caution }
+  hl.CocSemTypeParameter = { fg = v.Foreground.default }
   hl.CocSemVariable = { fg = v.Foreground.default }
   hl.CocSemFunction = { fg = v.Colors.Note }
   hl.CocSemMacroBang = { fg = v.Colors.Danger }

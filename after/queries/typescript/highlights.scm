@@ -4,12 +4,14 @@
 
 ["export" "import" "from"] @include
 
-(template_substitution
-    ["${" "}"] @punctuation.special)
-
 [ "type" "await" "async" "const" "let" "declare" "export" ] @storageclass
 
+[("${" (_) (["}"] @punctuation.special))
+ ("${" @punctuation.special)]
+
 "module" @function.macro
+
+["typeof" "keyof"] @operator
 
 (super) @function.builtin
 
@@ -21,13 +23,41 @@
 
 
 (intersection_type
-    "&" @symbol)
+    ("&" @operator))
 
 (union_type
-    "|" @symbol)
+    ("|" @operator))
 
 ; {start_row}  {start_col}  {end_row}  {end_col}
 
 ("?.") @keyword
 
+(mapped_type_clause) @operator
+
+([(type_arguments [">" "<"] @storageclass)
+  (type_parameters [">" "<"] @storageclass)])
+
+(conditional_type
+  (["?" ":"]) @operator)
+
+(template_literal_type) @string
+
+
+(type_parameter (type_identifier) @parameter)
+(type_arguments (type_identifier) @parameter)
+
+(conditional_type
+  [(intersection_type
+       (type_identifier) @parameter)
+   (conditional_type
+       (type_identifier) @parameter)])
+
+(mapped_type_clause
+  name: (type_identifier) @parameter)
+
+(intersection_type
+  (type_identifier) @type.builtin (#eq? @type.builtin "Object"))
+
+(template_type
+ (type_identifier) @parameter)
 ; ["async" "const" "await" "let" ] @storageclass
