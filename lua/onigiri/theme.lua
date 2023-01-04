@@ -112,12 +112,14 @@ local function Theme(v)
   hl.Comment = { fg = v.Foreground.muted }
   hl.SpecialComment = { fg = v.Foreground.muted }
   hl.Conditional = { fg = v.Colors.Trace }
-  hl.Constant = { fg = v.Foreground.emphasis }
+
+  hl.Constant = { fg = v.Colors.Error }
+
   hl.Define = { fg = v.Colors.Trace, italic = true }
   hl.Delimiter = { fg = v.Foreground.muted }
   hl.Float = { fg = v.Colors.Important }
-  hl.Function = { fg = v.Colors.Hint }
-  hl.Identifier = { fg = v.Foreground.default }
+  hl.Function = { fg = v.Colors.Trace }
+  hl.Identifier = { fg = v.Colors.Error }
   hl.Include = { fg = v.Colors.Error }
   hl.Keyword = { fg = v.Colors.Trace, italic = true }
   hl.Label = { fg = v.Colors.Hint }
@@ -279,12 +281,27 @@ local function Theme(v)
   hl.tmuxFormatString = { fg = v.Colors.Hint }
 
   hl.javaScriptReserved = { fg = v.Colors.Error }
+  hl.typescriptAsyncFuncKeyword = { fg = v.Colors.Error }
+  hl.typescriptAssign = { fg = v.Colors.Danger }
+  hl.typescriptBraces = { fg = v.Foreground.emphasis }
+  hl.typescriptDestructureVariable = { fg = v.Foreground.default }
+  hl.typescriptDOMFormProp = { fg = v.Colors.Accent }
+  hl.typescriptOperator = { fg = v.Colors.Danger }
+  hl.typescriptImport = { fg = v.Colors.Trace }
+  hl.typescriptIdentifierName = { fg = v.Colors.Caution }
+  hl.typescriptConsoleMethod = { fg = v.Colors.Note }
+
+  hl.typescriptProp = { fg = v.Colors.Accent }
 
   --- Fennel
   hl.FennelStringDelimiter = { fg = v.Colors.Hint }
   hl.FennelParen = { fg = v.Foreground.emphasis }
   hl.FennelSpecialForm = { fg = v.Colors.Trace, italic = true }
   hl.FennelKeyword = { fg = v.Colors.Error }
+
+  hl.luaFunc = { fg = v.Colors.Note }
+  hl.luaTable = { fg = v.Foreground.default }
+  hl.luaStringDelimiter = { fg = v.Colors.Note }
 
   --- Help
   hl.helpHyperTextEntry = { fg = v.Colors.Note, underdotted = true }
@@ -489,15 +506,15 @@ local function Theme(v)
   -- hl.CocFadeOut = { link = 'Comment' }
   hl.CocPumVirtualText = { fg = v.Foreground.muted }
 
-  hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis, fg = 'NONE' }
-  hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis, fg = 'NONE' }
-  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = v.Background.emphasis, fg = 'NONE' }
+  hl.CocHighlightRead  = { underline = true, sp = v.Foreground.muted, bg = 'NONE', fg = 'NONE' }
+  hl.CocHighlightText  = { underline = true, sp = v.Foreground.muted, bg = 'NONE', fg = 'NONE' }
+  hl.CocHighlightWrite = { underline = true, sp = v.Foreground.muted, bg = 'NONE', fg = 'NONE' }
 
-  hl.CocHintFloat = { bg = v.Background.emphasis }
-  hl.CocInlayHint = { fg = v.Foreground.muted, bg = v.Shade.default }
-  hl.CocHoverRange = { bg = v.Background.emphasis }
-  hl.CocInlayHintType = { fg = v.Foreground.muted, bg = v.Shade.default }
-  hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = v.Shade.default }
+  hl.CocHintFloat = { bold = true, bg = 'NONE', fg = 'NONE' }
+  hl.CocInlayHint = { fg = v.Foreground.muted, bg = 'NONE' }
+  hl.CocHoverRange = { underline = true, bg = 'NONE', sp = 'NONE' }
+  hl.CocInlayHintType = { fg = v.Foreground.muted, bg = 'NONE' }
+  hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = 'NONE' }
 
   -- coc-lists
   hl.CocListLine = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
@@ -547,6 +564,8 @@ local function Theme(v)
   hl.CocSemAngle = { fg = v.Colors.Danger }
   hl.CocSemCharacter = { fg = v.Colors.Info }
   hl.CocSemKeyword = { italic = true }
+
+  hl.CocSemComment = { fg = 'NONE' }
 
   --- token-modifiers
   hl.CocSemReadonlyVariable = { fg = v.Foreground.emphasis }
