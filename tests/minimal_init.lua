@@ -1,8 +1,9 @@
 vim.cmd [[set runtimepath+=.]]
 vim.cmd [[runtime! plugin/plenary.vim]]
-
 vim.o.swapfile = false
 vim.bo.swapfile = false
+
+
 
 vim.g.onigiri = {
   theme = {
@@ -35,5 +36,8 @@ vim.g.onigiri = {
     }
   }
 }
+
+-- local onigiri = require 'onigiri'
+-- local presets = require 'onigiri.presets'
 
 vim.cmd.color 'onigiri'
