@@ -19,7 +19,7 @@ local load = function()
     nvim_set_hl(0, group, attrs)
   end
 
-  require 'onigiri.ts-extended'()
+  require 'onigiri.ts-extended' ()
 end
 
 return {
