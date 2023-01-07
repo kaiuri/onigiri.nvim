@@ -58,7 +58,7 @@ local function Theme(v)
 
   hl.Search = { fg = v.Background.emphasis, bg = v.Colors.Caution }
   hl.IncSearch = { fg = v.Background.emphasis, bg = v.Colors.Caution }
-  hl.Substitute = { bg = v.Background.muted }
+  hl.Substitute = { fg = v.Background.emphasis, bg = v.Colors.Caution }
 
   hl.SpellBad = { sp = v.Colors.Error, undercurl = true }
   hl.SpellCap = { sp = v.Colors.Caution, undercurl = true }
@@ -70,8 +70,7 @@ local function Theme(v)
 
   hl.TabLine = { fg = v.Foreground.default, bg = v.Background.muted }
   hl.TabLineFill = { fg = v.Foreground.default, bg = v.Background.muted }
-  hl.TabLineSel =
-  { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
+  hl.TabLineSel = { fg = v.Foreground.default, bg = v.Shade.default, bold = true }
 
   hl.WarningMsg = { fg = v.Colors.Warn, bg = v.Shade.default }
 
@@ -83,28 +82,20 @@ local function Theme(v)
   hl.MatchParen = { bg = v.Shade.default, bold = true }
 
   hl.DiagnosticError = { fg = v.Colors.Error, bg = 'NONE' }
-  hl.DiagnosticSignError =
-  { fg = hl.DiagnosticError.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineError =
-  { sp = hl.DiagnosticError.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignError = { fg = hl.DiagnosticError.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineError = { sp = hl.DiagnosticError.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextError = { fg = hl.DiagnosticError.fg, bg = 'NONE' }
   hl.DiagnosticHint = { fg = v.Colors.Hint, bg = 'NONE' }
-  hl.DiagnosticSignHint =
-  { fg = hl.DiagnosticHint.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineHint =
-  { sp = hl.DiagnosticHint.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignHint = { fg = hl.DiagnosticHint.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineHint = { sp = hl.DiagnosticHint.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextHint = { fg = hl.DiagnosticHint.fg, bg = 'NONE' }
   hl.DiagnosticInfo = { fg = v.Colors.Info, bg = 'NONE' }
-  hl.DiagnosticSignInfo =
-  { fg = hl.DiagnosticInfo.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineInfo =
-  { sp = hl.DiagnosticInfo.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignInfo = { fg = hl.DiagnosticInfo.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineInfo = { sp = hl.DiagnosticInfo.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextInfo = { fg = hl.DiagnosticInfo.fg, bg = 'NONE' }
   hl.DiagnosticWarn = { fg = v.Colors.Caution, bg = 'NONE' }
-  hl.DiagnosticSignWarn =
-  { fg = hl.DiagnosticWarn.fg, bold = true, bg = 'NONE' }
-  hl.DiagnosticUnderlineWarn =
-  { sp = hl.DiagnosticWarn.fg, undercurl = true, bg = 'NONE' }
+  hl.DiagnosticSignWarn = { fg = hl.DiagnosticWarn.fg, bold = true, bg = 'NONE' }
+  hl.DiagnosticUnderlineWarn = { sp = hl.DiagnosticWarn.fg, undercurl = true, bg = 'NONE' }
   hl.DiagnosticVirtualTextWarn = { fg = hl.DiagnosticWarn.fg, bg = 'NONE' }
 
   hl.Boolean = { fg = v.Colors.Error, italic = true }
@@ -280,19 +271,6 @@ local function Theme(v)
   hl.tmuxFlags = { fg = v.Colors.Caution }
   hl.tmuxFormatString = { fg = v.Colors.Hint }
 
-  hl.javaScriptReserved = { fg = v.Colors.Error }
-  hl.typescriptAsyncFuncKeyword = { fg = v.Colors.Error }
-  hl.typescriptAssign = { fg = v.Colors.Danger }
-  hl.typescriptBraces = { fg = v.Foreground.emphasis }
-  hl.typescriptDestructureVariable = { fg = v.Foreground.default }
-  hl.typescriptDOMFormProp = { fg = v.Colors.Accent }
-  hl.typescriptOperator = { fg = v.Colors.Danger }
-  hl.typescriptImport = { fg = v.Colors.Trace }
-  hl.typescriptIdentifierName = { fg = v.Colors.Caution }
-  hl.typescriptConsoleMethod = { fg = v.Colors.Note }
-
-  hl.typescriptProp = { fg = v.Colors.Accent }
-
   --- Fennel
   hl.FennelStringDelimiter = { fg = v.Colors.Hint }
   hl.FennelParen = { fg = v.Foreground.emphasis }
@@ -321,16 +299,11 @@ local function Theme(v)
   hl.rainbowcol6 = { fg = v.Colors.Important }
   hl.rainbowcol7 = { fg = v.Colors.Warn }
 
-  hl.IndentBlanklineChar =
-  { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
-  hl.IndentBlanklineSpaceChar =
-  { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
-  hl.IndentBlanklineSpaceCharBlankline =
-  { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
-  hl.IndentBlanklineContextChar =
-  { fg = v.Foreground.muted, bg = 'NONE', nocombine = true }
-  hl.IndentBlanklineContextSpaceChar =
-  { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineChar = { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineSpaceChar = { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineSpaceCharBlankline = { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineContextChar = { fg = v.Foreground.muted, bg = 'NONE', nocombine = true }
+  hl.IndentBlanklineContextSpaceChar = { fg = v.Foreground.surface, bg = 'NONE', nocombine = true }
   hl.IndentBlanklineContextStart = {
     fg = 'NONE',
     bg = 'NONE',
@@ -361,19 +334,14 @@ local function Theme(v)
   hl.CmpItemKindTypeParameter = { fg = v.Colors.Caution }
   hl.CmpItemKindVariable = { fg = v.Foreground.default }
 
-  hl.LeapMatch =
-  { fg = v.Background.emphasis, bg = v.Colors.Danger, bold = true }
-  hl.LeapLabelPrimary =
-  { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
-  hl.LeapLabelSecondary =
-  { fg = v.Background.emphasis, bg = v.Colors.Warn, bold = true }
-  hl.LeapLabelSelected =
-  { fg = v.Background.emphasis, bg = v.Colors.Important, bold = true }
+  hl.LeapMatch = { fg = v.Background.emphasis, bg = v.Colors.Danger, bold = true }
+  hl.LeapLabelPrimary = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
+  hl.LeapLabelSecondary = { fg = v.Background.emphasis, bg = v.Colors.Warn, bold = true }
+  hl.LeapLabelSelected = { fg = v.Background.emphasis, bg = v.Colors.Important, bold = true }
   hl.LeapBackdrop = { fg = 'NONE', bg = v.Background.emphasis }
 
   hl.Sneak = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
-  hl.SneakLabel =
-  { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
+  hl.SneakLabel = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
 
   hl.GitSignsDelete = { fg = v.Colors.Error }
   hl.GitSignsChange = { fg = v.Colors.Caution }
@@ -383,9 +351,9 @@ local function Theme(v)
   hl.packerString = { fg = v.Colors.Info }
   hl.packerStatusSuccess = { fg = v.Colors.Info }
 
-  hl.LspReferenceText = { bg = v.Background.emphasis }
-  hl.LspReferenceRead = { bg = v.Background.emphasis }
-  hl.LspReferenceWrite = { bg = v.Background.emphasis }
+  hl.LspReferenceText  = { underline = true, sp = v.Foreground.muted, bg = 'NONE', fg = 'NONE' }
+  hl.LspReferenceRead  = { underline = true, sp = v.Foreground.muted, bg = 'NONE', fg = 'NONE' }
+  hl.LspReferenceWrite = { underline = true, sp = v.Foreground.muted, bg = 'NONE', fg = 'NONE' }
 
   hl.TelescopeBorder = { fg = v.Foreground.surface }
   hl.TelescopeTitle = { fg = v.Foreground.default, bold = true }
@@ -517,27 +485,28 @@ local function Theme(v)
   hl.CocInlayHintParameter = { fg = v.Foreground.muted, bg = 'NONE' }
 
   -- coc-lists
-  hl.CocListLine = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
-  hl.CocListPath = { fg = v.Foreground.default }
-  hl.CocListMode = { fg = v.Foreground.default }
+  hl.CocListLine  = { bg = v.Background.muted, fg = v.Foreground.emphasis, bold = false }
+  hl.CocListPath  = { fg = v.Foreground.default }
+  hl.CocListMode  = { fg = v.Foreground.default }
   hl.CocListsDesc = { fg = v.Foreground.default }
 
-  hl.CocListFgGreen = { fg = v.Colors.Info }
-  hl.CocListFgRed = { fg = v.Colors.Error }
-  hl.CocListFgBlue = { fg = v.Colors.Note }
-  hl.CocListFgCyan = { fg = v.Colors.Hint }
-  hl.CocListFgGrey = { fg = v.Foreground.muted }
-  hl.CocListFgWhite = { fg = v.Foreground.emphasis }
-  hl.CocListFgYellow = { fg = v.Colors.Caution }
+  hl.CocListFgGreen   = { fg = v.Colors.Info }
+  hl.CocListFgRed     = { fg = v.Colors.Error }
+  hl.CocListFgBlue    = { fg = v.Colors.Note }
+  hl.CocListFgCyan    = { fg = v.Colors.Hint }
+  hl.CocListFgGrey    = { fg = v.Foreground.muted }
+  hl.CocListFgWhite   = { fg = v.Foreground.emphasis }
+  hl.CocListFgYellow  = { fg = v.Colors.Caution }
   hl.CocListFgMagenta = { fg = v.Colors.Trace }
-  hl.CocListBgGreen = { bg = v.Colors.Info }
-  hl.CocListBgRed = { bg = v.Colors.Error }
-  hl.CocListBgBlue = { bg = v.Colors.Note }
-  hl.CocListBgCyan = { bg = v.Colors.Hint }
-  hl.CocListBgGrey = { bg = v.Foreground.muted }
-  hl.CocListBgWhite = { bg = v.Foreground.emphasis }
-  hl.CocListBgYellow = { bg = v.Colors.Caution }
-  hl.CocListBgMagenta = { bg = v.Colors.Trace }
+
+  hl.CocListBgGreen   = { fg = v.Background.emphasis, bg = v.Colors.Info, bold = true }
+  hl.CocListBgRed     = { fg = v.Background.emphasis, bg = v.Colors.Error, bold = true }
+  hl.CocListBgBlue    = { fg = v.Background.emphasis, bg = v.Colors.Note, bold = true }
+  hl.CocListBgCyan    = { fg = v.Background.emphasis, bg = v.Colors.Hint, bold = true }
+  hl.CocListBgGrey    = { fg = v.Background.emphasis, bg = v.Foreground.muted, bold = true }
+  hl.CocListBgWhite   = { fg = v.Background.emphasis, bg = v.Foreground.emphasis, bold = true }
+  hl.CocListBgYellow  = { fg = v.Background.emphasis, bg = v.Colors.Caution, bold = true }
+  hl.CocListBgMagenta = { fg = v.Background.emphasis, bg = v.Colors.Trace, bold = true }
   -- hl.CocListBgBlack = { bg = v.Shade.emphasis }
 
   --- coc-semantic-tokens
@@ -602,12 +571,20 @@ local function Theme(v)
   hl.CocSemDocumentationMacroBang = { link = 'CocSemMacroBang' }
 
   --- coc-symbols
-  hl.CocSymbolEnum = { fg = v.Colors.Caution }
-  hl.CocSymbolStruct = { fg = v.Colors.Caution }
-  hl.CocSymbolText = { fg = v.Foreground.default }
-  hl.CocSymbolField = { fg = v.Colors.Accent }
-  hl.CocSymbolProperty = { fg = v.Colors.Accent }
+  hl.CocSymbolEnum       = { fg = v.Colors.Caution }
+  hl.CocSymbolStruct     = { fg = v.Colors.Caution }
+  hl.CocSymbolText       = { fg = v.Foreground.default }
+  hl.CocSymbolField      = { fg = v.Colors.Accent }
+  hl.CocSymbolProperty   = { fg = v.Colors.Accent }
   hl.CocSymbolEnumMember = { fg = v.Foreground.emphasis }
+  hl.CocSymbolVariable   = { fg = v.Colors.Caution }
+  hl.CocSymbolFunction   = { fg = v.Colors.Note }
+
+  --- coc-tree
+  hl.CocTreeTitle = { fg = v.Foreground.emphasis, bold = true }
+  hl.CocTreeDescription = { fg = v.Foreground.default }
+  hl.CocTreeSelected = { bg = v.Background.muted }
+
 
   hl['@string.delimiter'] = { fg = v.Colors.Note } -- extra highlight
 
