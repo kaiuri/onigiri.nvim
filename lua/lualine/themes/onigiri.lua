@@ -1,4 +1,4 @@
-local config = require('onigiri.config')
+local config = require 'onigiri.config'
 local v = config()
 
 local fg = v.Foreground.default
@@ -6,7 +6,7 @@ local bg = v.Background.muted
 
 return {
   normal = {
-    a = { bg = v.Background.default, fg = v.Foreground.emphasis, gui = 'bold' },
+    a = { bg = v.Background.emphasis, fg = v.Foreground.default, gui = 'bold' },
     b = { bg = bg, fg = fg },
     c = { bg = bg, fg = fg },
   },
@@ -26,7 +26,7 @@ return {
     c = { bg = bg, fg = fg },
   },
   command = {
-    a = { bg = v.Colors.Warn, fg = v.Background.emphasis, gui = 'bold' },
+    a = { bg = v.Colors.Caution, fg = v.Background.emphasis, gui = 'bold' },
     b = { bg = bg, fg = fg },
     c = { bg = bg, fg = fg },
   },
@@ -34,6 +34,12 @@ return {
     a = { bg = v.Colors.Trace, fg = v.Background.emphasis, gui = 'bold' },
     b = { bg = bg, fg = fg },
     c = { bg = bg, fg = fg },
+  },
+  active = {
+    a = { bg = v.Background.default, fg = v.Foreground.default, gui = 'bold' },
+    b = { bg = bg, fg = fg },
+    c = { bg = bg, fg = fg },
+
   },
   inactive = {
     a = { bg = v.Background.muted, fg = v.Foreground.default },
