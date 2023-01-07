@@ -35,14 +35,15 @@ vim.g.onigiri = {
   }
 }
 
+local pretty_print = vim.pretty_print
 local function print_test(status, results)
   results = results or 'Empty results'
   return ({
     [false] = function(results)
-      print('Error: ' .. vim.pretty_print(results))
+      print('Error: ' .. pretty_print(results))
     end,
     [true] = function(results)
-      print('Success: ' .. vim.pretty_print(results))
+      print('Success: ' .. pretty_print(results))
     end,
   })[status](results)
 end
@@ -74,6 +75,6 @@ test('onigiri.chroma', function()
   local Chroma = require 'onigiri'.chroma ---@function
   local color = Chroma '#ff0000' ---@type ChromaColor
   local hsl = color.hsl
-  local hsl = assert(hsl, 'could not convert hex to hsl')
-  local scale = assert(color:scale(10), 'could not scale color')
+  assert(hsl, 'could not convert hex to hsl')
+  assert(color:scale(10), 'could not scale color')
 end)
