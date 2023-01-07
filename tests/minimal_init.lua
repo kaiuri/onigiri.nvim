@@ -3,8 +3,6 @@ vim.cmd [[runtime! plugin/plenary.vim]]
 vim.o.swapfile = false
 vim.bo.swapfile = false
 
-
-
 vim.g.onigiri = {
   theme = {
     Background = {
@@ -37,7 +35,45 @@ vim.g.onigiri = {
   }
 }
 
--- local onigiri = require 'onigiri'
--- local presets = require 'onigiri.presets'
+local function print_test(status, results)
+  results = results or 'Empty results'
+  return ({
+    [false] = function(results)
+      print('Error: ' .. vim.pretty_print(results))
+    end,
+    [true] = function(results)
+      print('Success: ' .. vim.pretty_print(results))
+    end,
+  })[status](results)
+end
 
-vim.cmd.color 'onigiri'
+local function test(name, cb)
+  print('Running test: ' .. name)
+  local status, results = pcall(cb)
+  print_test(status, results)
+end
+
+test('load colorscheme', function()
+  vim.cmd.color 'onigiri'
+end)
+test('load plugin', function()
+  local onigiri = require 'onigiri'
+  assert(onigiri ~= nil, 'onigiri plugin failed to load')
+end)
+test('plugin configuration', function()
+  local config = require 'onigiri'.config
+  assert(config ~= nil, 'could not load config')
+  assert(config() ~= nil, 'could not run onigiri.config()')
+end)
+test('onigiri presets', function()
+  local presets = require 'onigiri'.presets
+  assert(presets ~= nil, 'could not load presets')
+  assert(type(tostring(presets)) == 'string', 'could not print presets')
+end)
+test('onigiri.chroma', function()
+  local Chroma = require 'onigiri'.chroma ---@function
+  local color = Chroma '#ff0000' ---@type ChromaColor
+  local hsl = color.hsl
+  local hsl = assert(hsl, 'could not convert hex to hsl')
+  local scale = assert(color:scale(10), 'could not scale color')
+end)
